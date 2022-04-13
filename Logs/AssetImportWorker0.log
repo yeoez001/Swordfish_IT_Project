@@ -11,19 +11,19 @@ C:\Program Files\Unity\Hub\Editor\2020.3.32f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/yeoez001/Downloads/IATK-master/IATK-master
+C:/Users/yeoez001/Documents/GitHub/Swordfish_IT_Project
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-63996
-Successfully changed project path to: C:/Users/yeoez001/Downloads/IATK-master/IATK-master
-C:/Users/yeoez001/Downloads/IATK-master/IATK-master
+57664
+Successfully changed project path to: C:/Users/yeoez001/Documents/GitHub/Swordfish_IT_Project
+C:/Users/yeoez001/Documents/GitHub/Swordfish_IT_Project
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 73.86 ms, found 6 plugins.
+Refreshing native plugins compatible for Editor in 93.96 ms, found 6 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.32f1 (12f8b0834f07)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.32f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/yeoez001/Downloads/IATK-master/IATK-master/Assets
+[Subsystems] Discovering subsystems at path C:/Users/yeoez001/Documents/GitHub/Swordfish_IT_Project/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
@@ -36,90 +36,90 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.32f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.32f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.32f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56536
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56956
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.32f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.000940 seconds.
+Registered in 0.001136 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 60.13 ms, found 6 plugins.
+Refreshing native plugins compatible for Editor in 69.88 ms, found 6 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.507 seconds
+- Completed reload, in  0.622 seconds
 Domain Reload Profiling:
-	ReloadAssembly (507ms)
-		BeginReloadAssembly (46ms)
+	ReloadAssembly (622ms)
+		BeginReloadAssembly (54ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (406ms)
-			LoadAssemblies (44ms)
+		EndReloadAssembly (498ms)
+			LoadAssemblies (52ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (119ms)
+			SetupTypeCache (156ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (28ms)
-			SetupLoadedEditorAssemblies (170ms)
+			RebuildScriptCaches (35ms)
+			SetupLoadedEditorAssemblies (200ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (60ms)
-				BeforeProcessingInitializeOnLoad (14ms)
-				ProcessInitializeOnLoadAttributes (70ms)
-				ProcessInitializeOnLoadMethodAttributes (22ms)
+				RefreshPlugins (70ms)
+				BeforeProcessingInitializeOnLoad (15ms)
+				ProcessInitializeOnLoadAttributes (83ms)
+				ProcessInitializeOnLoadMethodAttributes (28ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.009941 seconds.
+Registered in 0.011716 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.21 ms, found 6 plugins.
+Refreshing native plugins compatible for Editor in 1.32 ms, found 6 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.054 seconds
+- Completed reload, in  1.230 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1054ms)
-		BeginReloadAssembly (121ms)
+	ReloadAssembly (1230ms)
+		BeginReloadAssembly (145ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
+			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (16ms)
-		EndReloadAssembly (878ms)
-			LoadAssemblies (84ms)
+			CreateAndSetChildDomain (18ms)
+		EndReloadAssembly (1018ms)
+			LoadAssemblies (103ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (270ms)
-			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (60ms)
-			SetupLoadedEditorAssemblies (370ms)
+			SetupTypeCache (329ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (67ms)
+			SetupLoadedEditorAssemblies (419ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (1ms)
+				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (99ms)
-				ProcessInitializeOnLoadAttributes (202ms)
-				ProcessInitializeOnLoadMethodAttributes (58ms)
-				AfterProcessingInitializeOnLoad (4ms)
+				BeforeProcessingInitializeOnLoad (115ms)
+				ProcessInitializeOnLoadAttributes (223ms)
+				ProcessInitializeOnLoadMethodAttributes (70ms)
+				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (8ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'IATK/BarShader': fallback shader 'Transparent' not found
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 1.10 ms, found 6 plugins.
+Refreshing native plugins compatible for Editor in 1.22 ms, found 6 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3180 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 128.4 MB.
-System memory in use after: 128.6 MB.
+System memory in use before: 128.5 MB.
+System memory in use after: 128.7 MB.
 
-Unloading 114 unused Assets to reduce memory usage. Loaded Objects now: 3539.
-Total: 5.610400 ms (FindLiveObjects: 0.266700 ms CreateObjectMapping: 0.163700 ms MarkObjects: 5.080100 ms  DeleteObjects: 0.099200 ms)
+Unloading 114 unused Assets to reduce memory usage. Loaded Objects now: 3541.
+Total: 7.301700 ms (FindLiveObjects: 0.320100 ms CreateObjectMapping: 0.255200 ms MarkObjects: 6.605700 ms  DeleteObjects: 0.119500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -133,166 +133,67 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures/BuildingAtlasFacades_detailMask_1.png
-  artifactKey: Guid(36bfefc139bfa434daf90848bb333e1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures/BuildingAtlasFacades_detailMask_1.png using Guid(36bfefc139bfa434daf90848bb333e1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38fa9b0c6c5c7ac5b09ba7008483a5d2') in 0.076508 seconds 
+  path: Assets/UnityVS/Editor
+  artifactKey: Guid(b9ae287fe00533e4b8692fbb7f5bca4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UnityVS/Editor using Guid(b9ae287fe00533e4b8692fbb7f5bca4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1397e5837fefe703b1e27b244d79dd4f') in 0.004904 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000175 seconds.
-  path: Assets/SteamVR/Extras/SteamVR_TestTrackedCamera.mat
-  artifactKey: Guid(99ee8d48ccf36264e9d9a72baa681249) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SteamVR/Extras/SteamVR_TestTrackedCamera.mat using Guid(99ee8d48ccf36264e9d9a72baa681249) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd054ef0701eb558deae8b11a5ccac00') in 0.075418 seconds 
+  Time since last request: 2.457432 seconds.
+  path: Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll
+  artifactKey: Guid(a9ca137dc0313c5b29b8eb18b5566c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll using Guid(a9ca137dc0313c5b29b8eb18b5566c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '870716353723aac15096ec7e601c3873') in 0.013299 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000223 seconds.
-  path: Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures/BuildingAtlasFacades_base.png
-  artifactKey: Guid(4d520150ef3724e4bb52237605c761df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures/BuildingAtlasFacades_base.png using Guid(4d520150ef3724e4bb52237605c761df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57f01ba299337b1b1bd037d545b0971e') in 0.006706 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000241 seconds.
-  path: Assets/SteamVR/Resources/SteamVR_ExternalCamera.prefab
-  artifactKey: Guid(6b259143c09ffc447ad059e5b8d8cf89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SteamVR/Resources/SteamVR_ExternalCamera.prefab using Guid(6b259143c09ffc447ad059e5b8d8cf89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75408baa67ed79deb73655044d3740e8') in 0.008835 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000207 seconds.
-  path: Assets/SteamVR/Prefabs/[CameraRig].prefab
-  artifactKey: Guid(4d293c8e162f3874b982baadd71153d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SteamVR/Prefabs/[CameraRig].prefab using Guid(4d293c8e162f3874b982baadd71153d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c699d0b800d451c7dcf00a47df5708f2') in 0.028342 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000211 seconds.
-  path: Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures/BuildingAtlasFacades_detailMask_2.png
-  artifactKey: Guid(aaebc04bedf1444bebad66d5386b3744) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures/BuildingAtlasFacades_detailMask_2.png using Guid(aaebc04bedf1444bebad66d5386b3744) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cec97da92197edac4833ddd7cf75e17') in 0.007397 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000207 seconds.
-  path: Assets/Mapbox/Examples/Resources/maki/america-football-15.png
-  artifactKey: Guid(0ab7e81663cf1d94e9bd71c89d6f82d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mapbox/Examples/Resources/maki/america-football-15.png using Guid(0ab7e81663cf1d94e9bd71c89d6f82d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa21f6d2aba2720064c79e61ef704f6c') in 0.018734 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000215 seconds.
-  path: Assets/Mapbox/Examples/Resources/maki/cafe-15.png
-  artifactKey: Guid(025733da1b0ac7345a65b55d10874afa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mapbox/Examples/Resources/maki/cafe-15.png using Guid(025733da1b0ac7345a65b55d10874afa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd510fde49cd3e394b85f810b1f89a41') in 0.005876 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 85.257051 seconds.
-  path: Assets/New Folder
-  artifactKey: Guid(257184b494412b2469753018d87e3560) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/New Folder using Guid(257184b494412b2469753018d87e3560) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82e8cc427107395241cab339b1782b3f') in 0.001196 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 33.146226 seconds.
-  path: Assets/Swordfish
-  artifactKey: Guid(257184b494412b2469753018d87e3560) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Swordfish using Guid(257184b494412b2469753018d87e3560) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74d6b59f2df0eff0e31f8133919d850f') in 0.001151 seconds 
+  Time since last request: 0.509527 seconds.
+  path: Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll
+  artifactKey: Guid(4ad02dc83da735c4e8d945332b9202f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll using Guid(4ad02dc83da735c4e8d945332b9202f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80d01a543245e73f5c21add175e84cbc') in 0.001128 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.012461 seconds.
+Registered in 0.011016 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.28 ms, found 6 plugins.
+Refreshing native plugins compatible for Editor in 1.30 ms, found 6 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.267 seconds
+- Completed reload, in  1.152 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1267ms)
-		BeginReloadAssembly (126ms)
+	ReloadAssembly (1153ms)
+		BeginReloadAssembly (116ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (7ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (43ms)
-		EndReloadAssembly (1072ms)
-			LoadAssemblies (106ms)
+			CreateAndSetChildDomain (38ms)
+		EndReloadAssembly (975ms)
+			LoadAssemblies (98ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (353ms)
+			SetupTypeCache (325ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (53ms)
-			SetupLoadedEditorAssemblies (435ms)
+			RebuildScriptCaches (51ms)
+			SetupLoadedEditorAssemblies (398ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (106ms)
-				ProcessInitializeOnLoadAttributes (246ms)
-				ProcessInitializeOnLoadMethodAttributes (71ms)
-				AfterProcessingInitializeOnLoad (5ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (13ms)
-Platform modules already initialized, skipping
-Shader 'IATK/BarShader': fallback shader 'Transparent' not found
-Refreshing native plugins compatible for Editor in 1.48 ms, found 6 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3117 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 126.2 MB.
-System memory in use after: 126.4 MB.
-
-Unloading 105 unused Assets to reduce memory usage. Loaded Objects now: 3588.
-Total: 6.238200 ms (FindLiveObjects: 0.301000 ms CreateObjectMapping: 0.189600 ms MarkObjects: 5.696900 ms  DeleteObjects: 0.049300 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.011363 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.46 ms, found 6 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.253 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1254ms)
-		BeginReloadAssembly (122ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (8ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (41ms)
-		EndReloadAssembly (1071ms)
-			LoadAssemblies (108ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (343ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (51ms)
-			SetupLoadedEditorAssemblies (459ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (113ms)
-				ProcessInitializeOnLoadAttributes (265ms)
-				ProcessInitializeOnLoadMethodAttributes (68ms)
-				AfterProcessingInitializeOnLoad (5ms)
+				BeforeProcessingInitializeOnLoad (98ms)
+				ProcessInitializeOnLoadAttributes (226ms)
+				ProcessInitializeOnLoadMethodAttributes (63ms)
+				AfterProcessingInitializeOnLoad (4ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (8ms)
 Platform modules already initialized, skipping
 Shader 'IATK/BarShader': fallback shader 'Transparent' not found
-Refreshing native plugins compatible for Editor in 1.44 ms, found 6 plugins.
+Refreshing native plugins compatible for Editor in 1.31 ms, found 6 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3117 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 126.3 MB.
-System memory in use after: 126.5 MB.
+Unloading 3115 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 123.0 MB.
+System memory in use after: 123.3 MB.
 
-Unloading 105 unused Assets to reduce memory usage. Loaded Objects now: 3592.
-Total: 7.750400 ms (FindLiveObjects: 0.453200 ms CreateObjectMapping: 0.859800 ms MarkObjects: 6.376400 ms  DeleteObjects: 0.059600 ms)
+Unloading 103 unused Assets to reduce memory usage. Loaded Objects now: 3545.
+Total: 6.325000 ms (FindLiveObjects: 0.265900 ms CreateObjectMapping: 0.170400 ms MarkObjects: 5.814900 ms  DeleteObjects: 0.072400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -305,51 +206,456 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+Received Import Request.
+  Time since last request: 41.120263 seconds.
+  path: Assets/IATK/Prefabs/VR_Menu.prefab
+  artifactKey: Guid(161281fdb9551da4283f75386fcee607) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IATK/Prefabs/VR_Menu.prefab using Guid(161281fdb9551da4283f75386fcee607) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59d7f790fef930ca8ff987b134962c03') in 0.068835 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.551317 seconds.
+  path: Assets/IATK/Resources/Axis.prefab
+  artifactKey: Guid(c061a8385aca89546a8f90550de16cf9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IATK/Resources/Axis.prefab using Guid(c061a8385aca89546a8f90550de16cf9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00eae016aa9a303ba8d4a21f3c2e624a') in 0.369600 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000257 seconds.
+  path: Assets/IATK/Resources/dot.png
+  artifactKey: Guid(1307e4a035dc4314c88d16a1d3a739d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IATK/Resources/dot.png using Guid(1307e4a035dc4314c88d16a1d3a739d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00e4bae18f4e103e5a32ac4701b8b327') in 0.037204 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000298 seconds.
+  path: Assets/IATK/Resources/circle-outline-basic.png
+  artifactKey: Guid(2aa3de44f469d5e42b6b0465424d41b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IATK/Resources/circle-outline-basic.png using Guid(2aa3de44f469d5e42b6b0465424d41b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '747a9034acc195569277760efa67566c') in 0.008926 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000336 seconds.
+  path: Assets/IATK/Resources/BrushingAndLinking.prefab
+  artifactKey: Guid(15d1472961b50a3408de1db69f65b195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IATK/Resources/BrushingAndLinking.prefab using Guid(15d1472961b50a3408de1db69f65b195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e32e85620420e3303049a592f56027a') in 0.006976 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000232 seconds.
+  path: Assets/IATK/Resources/Key.prefab
+  artifactKey: Guid(4cb7a4e933cb32646aa7d27530a664ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IATK/Resources/Key.prefab using Guid(4cb7a4e933cb32646aa7d27530a664ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f2b7433842df17e608281b9bfd1e4ba') in 0.005047 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/IATK/Resources/sphere-texture.png
+  artifactKey: Guid(0e9443b0291045f4eaf453a9b90bfc40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IATK/Resources/sphere-texture.png using Guid(0e9443b0291045f4eaf453a9b90bfc40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a351bac6b8e468ed7b9c7fdcd637115') in 0.006905 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 38.418879 seconds.
+  path: Assets/IATK/Meshes/axis_mesh.fbx
+  artifactKey: Guid(4fe201dbcc2db4b4e93ee029a5aaeab7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IATK/Meshes/axis_mesh.fbx using Guid(4fe201dbcc2db4b4e93ee029a5aaeab7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de8bf56e071bb90893662f604995b972') in 0.247387 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000242 seconds.
+  path: Assets/IATK/Materials/AxisMaterial.mat
+  artifactKey: Guid(fc40431f468681a48a40137f96bc503b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IATK/Materials/AxisMaterial.mat using Guid(fc40431f468681a48a40137f96bc503b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0768b6c1a5c5bbbdec5b0be88b0006ad') in 0.022383 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/IATK/Materials/axis_tick_marks.png
+  artifactKey: Guid(3b9b625773b32da4cae592308664af8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IATK/Materials/axis_tick_marks.png using Guid(3b9b625773b32da4cae592308664af8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f12b8f0a49758e13df3b9fda3d67aa05') in 0.009614 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Assets/SteamVR/InteractionSystem/Poses/fallback_relaxed.asset
+  artifactKey: Guid(213b7d69786635c498d1287c5505990e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Poses/fallback_relaxed.asset using Guid(213b7d69786635c498d1287c5505990e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef9648c0c3467f57ec00a996ad49f31d') in 0.004306 seconds 
+========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.012543 seconds.
+Registered in 0.010968 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.18 ms, found 6 plugins.
+Refreshing native plugins compatible for Editor in 1.15 ms, found 6 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.308 seconds
+- Completed reload, in  1.142 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1309ms)
+	ReloadAssembly (1142ms)
+		BeginReloadAssembly (110ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (40ms)
+		EndReloadAssembly (978ms)
+			LoadAssemblies (95ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (328ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (49ms)
+			SetupLoadedEditorAssemblies (408ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (97ms)
+				ProcessInitializeOnLoadAttributes (233ms)
+				ProcessInitializeOnLoadMethodAttributes (67ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'IATK/BarShader': fallback shader 'Transparent' not found
+Refreshing native plugins compatible for Editor in 1.25 ms, found 6 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3115 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 126.6 MB.
+System memory in use after: 126.8 MB.
+
+Unloading 109 unused Assets to reduce memory usage. Loaded Objects now: 3598.
+Total: 6.074800 ms (FindLiveObjects: 0.270000 ms CreateObjectMapping: 0.166100 ms MarkObjects: 5.587900 ms  DeleteObjects: 0.049800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 89.675463 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/america-football-15.png
+  artifactKey: Guid(0ab7e81663cf1d94e9bd71c89d6f82d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/america-football-15.png using Guid(0ab7e81663cf1d94e9bd71c89d6f82d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4f7da99f603be3e1961348d36482a1b') in 0.051383 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000271 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Prefabs/BalloonPop.prefab
+  artifactKey: Guid(9d2dddaae5c812841accc43e4da1fccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Prefabs/BalloonPop.prefab using Guid(9d2dddaae5c812841accc43e4da1fccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb9235b2065ff324c47390b638d46ca6') in 0.077622 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/SteamVR/Textures/background.png
+  artifactKey: Guid(bb00cc87e146a414fbf2c4d3c0d31151) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/Textures/background.png using Guid(bb00cc87e146a414fbf2c4d3c0d31151) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa14542463f4474a3f42c413702cb608') in 0.007310 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonPop02.wav
+  artifactKey: Guid(0d1c592fd11196848aa69fc91bca521e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonPop02.wav using Guid(0d1c592fd11196848aa69fc91bca521e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43f39c08827402607397040633399bda') in 0.013520 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000299 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Prefabs/Balloon.prefab
+  artifactKey: Guid(8e13c6e5a21aeea4db3c25ef0e529308) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Prefabs/Balloon.prefab using Guid(8e13c6e5a21aeea4db3c25ef0e529308) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e4b3027ef70c33b047f8795a346cd83') in 0.210741 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000245 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Materials/BalloonColor.mat
+  artifactKey: Guid(406981998f1234442a4f2eb50cfe07e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Materials/BalloonColor.mat using Guid(406981998f1234442a4f2eb50cfe07e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b065ba3dcb214ac907b58f89f9d2f70') in 0.018834 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000182 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonBounce05.wav
+  artifactKey: Guid(7ae8d8155c5f0df4b8948d4fa4fb14c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonBounce05.wav using Guid(7ae8d8155c5f0df4b8948d4fa4fb14c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '140f364a72616dc75cb591fecec643a8') in 0.006502 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonPop05.wav
+  artifactKey: Guid(747254780f5d81b40b16acac3b8f9585) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonPop05.wav using Guid(747254780f5d81b40b16acac3b8f9585) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b768cc9cde1f6ef67bf140cb1f7894ec') in 0.006086 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000345 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Materials/BalloonPop.mat
+  artifactKey: Guid(2d01d8c885250364bac66a45791f02e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Materials/BalloonPop.mat using Guid(2d01d8c885250364bac66a45791f02e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2da9b864ff08b43f1e6bcfc3c3af9bb9') in 0.008006 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000251 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Prefabs/BalloonSpawner.prefab
+  artifactKey: Guid(01c670ceb931d524b9a80b70652eb18b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Prefabs/BalloonSpawner.prefab using Guid(01c670ceb931d524b9a80b70652eb18b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae65830e111d9a13fce08febca5735f9') in 0.008761 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000256 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonBounce04.wav
+  artifactKey: Guid(737a6618d669e4740862cd8ddf59e793) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonBounce04.wav using Guid(737a6618d669e4740862cd8ddf59e793) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65149def224fba3d28634bf77657716a') in 0.006728 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/basketball-15.png
+  artifactKey: Guid(77a2d2418bf827047ad47c68ba57da00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/basketball-15.png using Guid(77a2d2418bf827047ad47c68ba57da00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6165f98df1cfce5356aae3bce4a5c8cf') in 0.008065 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures/BuildingAtlasFacades_base.png
+  artifactKey: Guid(4d520150ef3724e4bb52237605c761df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures/BuildingAtlasFacades_base.png using Guid(4d520150ef3724e4bb52237605c761df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd32df1203143a45c89312a3ac260b40') in 0.010677 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Assets/Mapbox/Examples/_sharedModules/BasicsVectorTileFactory.asset
+  artifactKey: Guid(ee4d24cec5a998543b716563b2b77dae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/_sharedModules/BasicsVectorTileFactory.asset using Guid(ee4d24cec5a998543b716563b2b77dae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21a90763e4ed41dc5d392f0b20db0c7d') in 0.003387 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures/BuildingAtlasRoofs_base.png
+  artifactKey: Guid(89d3c1f500b7e4b8bba0ce9b760e9134) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures/BuildingAtlasRoofs_base.png using Guid(89d3c1f500b7e4b8bba0ce9b760e9134) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a34eea43a2ee6f08fe922b70a182c7c8') in 0.007658 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Materials/BalloonPopLine.mat
+  artifactKey: Guid(25bc1e9c1d9042d4781cb174093aaaed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Materials/BalloonPopLine.mat using Guid(25bc1e9c1d9042d4781cb174093aaaed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0b52887f769a8f1cbeb8699a9b6ccf4') in 0.006625 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonPop04.wav
+  artifactKey: Guid(2f4d6eb6d012eea4991c7a63f81fd083) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonPop04.wav using Guid(2f4d6eb6d012eea4991c7a63f81fd083) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01bd2699b988bf21a92d32894a857056') in 0.006666 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000170 seconds.
+  path: Assets/Mapbox/Resources/HeroStructures/Meshes/StatueofLiberty.fbx
+  artifactKey: Guid(76087a3bd0f174964bbe71a0a9c5386d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Resources/HeroStructures/Meshes/StatueofLiberty.fbx using Guid(76087a3bd0f174964bbe71a0a9c5386d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '228f46e5369e513e39a6bb10a00b685d') in 0.031384 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonBounce03.wav
+  artifactKey: Guid(39cd38d16e194ab47ae7ae092c5f9e07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonBounce03.wav using Guid(39cd38d16e194ab47ae7ae092c5f9e07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db0994cc3bb5c201d740bcd211c74296') in 0.008048 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000180 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonBounce01.wav
+  artifactKey: Guid(465e24e196f24c3498bbd20246f9f1ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonBounce01.wav using Guid(465e24e196f24c3498bbd20246f9f1ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c3297859e6a4bc8b34cf20ae218ad5e') in 0.007023 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000162 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Textures/BalloonPop.png
+  artifactKey: Guid(210c1550425ed90419d73be09bde0486) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Textures/BalloonPop.png using Guid(210c1550425ed90419d73be09bde0486) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7a28b792e969fbe77d4834b0cbc3e2f') in 0.005314 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000271 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonRubber01.wav
+  artifactKey: Guid(23003f298f14cc24d9ff3988966f6292) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonRubber01.wav using Guid(23003f298f14cc24d9ff3988966f6292) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc4855033c5c6c33cc5749d71a5021e0') in 0.006887 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000141 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/baseball-15.png
+  artifactKey: Guid(aedd248742c9f294eb06125e77817be0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/baseball-15.png using Guid(aedd248742c9f294eb06125e77817be0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '225d90515788c19a6d3d84e279eeb4ac') in 0.011341 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000203 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonPop06.wav
+  artifactKey: Guid(bb185b9d56707b64d8cd03434503252d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonPop06.wav using Guid(bb185b9d56707b64d8cd03434503252d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77290598ab50f5b3764cf9423a37dfc4') in 0.006379 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonBounce02.wav
+  artifactKey: Guid(2ec0e14254efe4040b7ae3a0da46d5a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonBounce02.wav using Guid(2ec0e14254efe4040b7ae3a0da46d5a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71bdabd5fe3021063f471411d54aaadc') in 0.005477 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/embassy-15.png
+  artifactKey: Guid(5836ba1dfecd1c94c9c38deb12e9860a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/embassy-15.png using Guid(5836ba1dfecd1c94c9c38deb12e9860a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd6d1b60cc9c0cdb400769d1b0a7022a') in 0.008094 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000302 seconds.
+  path: Assets/Mapbox/Examples/Resources/Assets/MapboxFloatingPinNoBase.fbx
+  artifactKey: Guid(fd394afabe3da4d9e8898092f298f54a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/Assets/MapboxFloatingPinNoBase.fbx using Guid(fd394afabe3da4d9e8898092f298f54a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '540beb34d63797e5a4155928d35fe13e') in 0.032176 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/Mapbox/Resources/HeroStructures/Materials/StatueOfLibertyBase.mat
+  artifactKey: Guid(07e8a1a7dedf44e8180a04f153bb8f93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Resources/HeroStructures/Materials/StatueOfLibertyBase.mat using Guid(07e8a1a7dedf44e8180a04f153bb8f93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb224c62d1becebb2158840143e3b76b') in 0.007503 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/Mapbox/Resources/Mapbox/PrefabScreens/Location-basedGame.gif
+  artifactKey: Guid(b9da555a2df00402d86244517dae835a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Resources/Mapbox/PrefabScreens/Location-basedGame.gif using Guid(b9da555a2df00402d86244517dae835a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94bd036ca4f8f18f86f683adee59a2ef') in 0.012683 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000305 seconds.
+  path: Assets/SteamVR/InteractionSystem/Poses/SquishyBase.asset
+  artifactKey: Guid(c8576ff2e3da53743b7694fbfe3ad743) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Poses/SquishyBase.asset using Guid(c8576ff2e3da53743b7694fbfe3ad743) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd94b702cd5ba873009ef3eda8d011cfd') in 0.002471 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000436 seconds.
+  path: Assets/Mapbox/Resources/Mapbox/ScenesList.asset
+  artifactKey: Guid(5424214e66dd94ac79007c7c31989849) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Resources/Mapbox/ScenesList.asset using Guid(5424214e66dd94ac79007c7c31989849) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7561a75c91da9a856ae8dc4e5cb22f26') in 0.007944 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000140 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonPop03.wav
+  artifactKey: Guid(18ca642fc8ed05d4c8c6063b48440d0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonPop03.wav using Guid(18ca642fc8ed05d4c8c6063b48440d0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '713673798c24b5b37eb5a507dd24851d') in 0.006556 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonBounce07.wav
+  artifactKey: Guid(891b9c1d17e50204a85ebdf71b6670f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonBounce07.wav using Guid(891b9c1d17e50204a85ebdf71b6670f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0411102f8a016accbec073fa0c1cbb52') in 0.006083 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000209 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonRubber02.wav
+  artifactKey: Guid(7916cbf0a83b8494f960b9e88aa45a90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonRubber02.wav using Guid(7916cbf0a83b8494f960b9e88aa45a90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b148fbf26a27802eb608bd706d5a1b6f') in 0.005929 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/Mapbox/Prefabs/LocationBasedGame.prefab
+  artifactKey: Guid(35ce2bb4caba9434db5e656796b632b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Prefabs/LocationBasedGame.prefab using Guid(35ce2bb4caba9434db5e656796b632b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f646e22a0388d49ddbc67df5bb2d5654') in 0.030687 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/Mapbox/Resources/Mapbox/PrefabList.asset
+  artifactKey: Guid(8d2ff5cb743b345f4a7ff8b3cdc69f27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Resources/Mapbox/PrefabList.asset using Guid(8d2ff5cb743b345f4a7ff8b3cdc69f27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83925bc843edd9827f1d52f3fa94cab7') in 0.003775 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000213 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Models/Balloon.fbx
+  artifactKey: Guid(8c0fbd56181ea0843b1596b4cb0e5498) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Models/Balloon.fbx using Guid(8c0fbd56181ea0843b1596b4cb0e5498) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04b5386ea6e8bd22aa38e34e2953de0f') in 0.011621 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Textures/BalloonPopLine.png
+  artifactKey: Guid(427c3f6e73f47194b8f02cdf53023b15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Textures/BalloonPopLine.png using Guid(427c3f6e73f47194b8f02cdf53023b15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eae52edca87bd4f8c54aa5eca6f6c761') in 0.005318 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonInflate01.wav
+  artifactKey: Guid(ddcfb4cc21e043948b5a84afe22d90f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonInflate01.wav using Guid(ddcfb4cc21e043948b5a84afe22d90f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2afa3a88954e0c2efdb4ff02bb3dd9a7') in 0.006436 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000242 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonPop07.wav
+  artifactKey: Guid(7a1b97ffbdbef1d44aa8aab723f05560) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonPop07.wav using Guid(7a1b97ffbdbef1d44aa8aab723f05560) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '338f45b31b4374573dcfa1bcce3333e6') in 0.007458 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000289 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonPop01.wav
+  artifactKey: Guid(fdcbdcd5e7d71594bb123666b2bcb779) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonPop01.wav using Guid(fdcbdcd5e7d71594bb123666b2bcb779) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a0ec70dd732f64d930911c9cd769baf') in 0.005707 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/waste-basket-15.png
+  artifactKey: Guid(d6e1dd6c5dbc43d43adbe36b7c00b38a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/waste-basket-15.png using Guid(d6e1dd6c5dbc43d43adbe36b7c00b38a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '251150674b9302066494df20f2d6d668') in 0.008256 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000155 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonRubber03.wav
+  artifactKey: Guid(dbf37170840828344ae352756e49a99a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Sounds/BalloonRubber03.wav using Guid(dbf37170840828344ae352756e49a99a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44c912edf4c4854754eea1f5cd9f42c6') in 0.006115 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Textures/BalloonColor.png
+  artifactKey: Guid(b57165504b60a7b49b9a5832dc81b5c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Textures/BalloonColor.png using Guid(b57165504b60a7b49b9a5832dc81b5c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f2b8137409008fd9aacfb2b731712bf') in 0.008445 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Mapbox/Examples/Resources/maki/bakery-15.png
+  artifactKey: Guid(6410ee84909c52546be3dece81113978) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mapbox/Examples/Resources/maki/bakery-15.png using Guid(6410ee84909c52546be3dece81113978) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5c2f21331bacd150d550cd10dd939bd') in 0.008485 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/SteamVR/InteractionSystem/Longbow/Prefabs/BalloonPopNoSound.prefab
+  artifactKey: Guid(a41945a8549c580408301691c2fd374e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR/InteractionSystem/Longbow/Prefabs/BalloonPopNoSound.prefab using Guid(a41945a8549c580408301691c2fd374e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b899e1d2b8e6862dc19c87718f5f2ed') in 0.008559 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 127.828508 seconds.
+  path: Assets/IATK/Resources/Axis.prefab
+  artifactKey: Guid(c061a8385aca89546a8f90550de16cf9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IATK/Resources/Axis.prefab using Guid(c061a8385aca89546a8f90550de16cf9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4633d457454d10caa4392048b351adfd') in 0.064015 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.010936 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.15 ms, found 6 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.168 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1168ms)
 		BeginReloadAssembly (116ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (40ms)
-		EndReloadAssembly (1132ms)
-			LoadAssemblies (105ms)
+		EndReloadAssembly (994ms)
+			LoadAssemblies (96ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (349ms)
+			SetupTypeCache (316ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (56ms)
-			SetupLoadedEditorAssemblies (457ms)
+			RebuildScriptCaches (53ms)
+			SetupLoadedEditorAssemblies (422ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
+				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (107ms)
-				ProcessInitializeOnLoadAttributes (253ms)
-				ProcessInitializeOnLoadMethodAttributes (81ms)
-				AfterProcessingInitializeOnLoad (8ms)
-				EditorAssembliesLoaded (1ms)
+				BeforeProcessingInitializeOnLoad (101ms)
+				ProcessInitializeOnLoadAttributes (244ms)
+				ProcessInitializeOnLoadMethodAttributes (67ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (43ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
 Platform modules already initialized, skipping
 Shader 'IATK/BarShader': fallback shader 'Transparent' not found
-Refreshing native plugins compatible for Editor in 2.28 ms, found 6 plugins.
+Refreshing native plugins compatible for Editor in 1.19 ms, found 6 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3117 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 126.3 MB.
-System memory in use after: 126.5 MB.
+Unloading 3115 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 127.2 MB.
+System memory in use after: 127.5 MB.
 
-Unloading 105 unused Assets to reduce memory usage. Loaded Objects now: 3596.
-Total: 10.680800 ms (FindLiveObjects: 0.567400 ms CreateObjectMapping: 0.420800 ms MarkObjects: 9.638600 ms  DeleteObjects: 0.053200 ms)
+Unloading 104 unused Assets to reduce memory usage. Loaded Objects now: 3616.
+Total: 6.949600 ms (FindLiveObjects: 0.220300 ms CreateObjectMapping: 0.170500 ms MarkObjects: 6.474000 ms  DeleteObjects: 0.083900 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -363,110 +669,56 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 436.475264 seconds.
-  path: Assets/Mapbox/Examples/_sharedModules/ContourLayerVisualizer.asset
-  artifactKey: Guid(5225cff0314e0fa4b92190829fefeaf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mapbox/Examples/_sharedModules/ContourLayerVisualizer.asset using Guid(5225cff0314e0fa4b92190829fefeaf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93d4da3182a8ee18877912e8aff56990') in 0.019660 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000221 seconds.
-  path: Assets/Mapbox/Examples/_sharedModules/StyledBuildingVisualizer.asset
-  artifactKey: Guid(69e43c5ee5f5f6b46a12bf3f1ba27039) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mapbox/Examples/_sharedModules/StyledBuildingVisualizer.asset using Guid(69e43c5ee5f5f6b46a12bf3f1ba27039) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bf6849b738456588989a1983adee548') in 0.001647 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000354 seconds.
-  path: Assets/SteamVR/InteractionSystem/Teleport/Materials URP/URPTeleportPlayspaceVisualize.mat
-  artifactKey: Guid(ced2760f8133c2743a275ba997adc9db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SteamVR/InteractionSystem/Teleport/Materials URP/URPTeleportPlayspaceVisualize.mat using Guid(ced2760f8133c2743a275ba997adc9db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb41d8493502be5ddae9aed65df0ecc9') in 0.049010 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000250 seconds.
-  path: Assets/Mapbox/Examples/_sharedModules/ParkVectorLayerVisualizer.asset
-  artifactKey: Guid(42d0c054e597a4590a29b5b66fbec4aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mapbox/Examples/_sharedModules/ParkVectorLayerVisualizer.asset using Guid(42d0c054e597a4590a29b5b66fbec4aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db77d95875ddd1b21d6f36a8e34ce179') in 0.002025 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000229 seconds.
-  path: Assets/Mapbox/Examples/_sharedModules/TransparentGreyBuildingVisualizer.asset
-  artifactKey: Guid(49b5b5cab8982084a986f2d148acff42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mapbox/Examples/_sharedModules/TransparentGreyBuildingVisualizer.asset using Guid(49b5b5cab8982084a986f2d148acff42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f6c5329d24737c0aeb9f8791488730a') in 0.001983 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000272 seconds.
-  path: Assets/SteamVR/InteractionSystem/Teleport/Materials/TeleportPlayspaceVisualize.mat
-  artifactKey: Guid(e070196015a41bc419ea9e03ba170df5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SteamVR/InteractionSystem/Teleport/Materials/TeleportPlayspaceVisualize.mat using Guid(e070196015a41bc419ea9e03ba170df5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f110f25e58890b5bcfee007845c9fc64') in 0.033711 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000391 seconds.
-  path: Assets/Mapbox/Examples/_sharedModules/PoiDemoUiPoiVisualizer.asset
-  artifactKey: Guid(3395a1a7d9533a74591d5ae0381edbfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mapbox/Examples/_sharedModules/PoiDemoUiPoiVisualizer.asset using Guid(3395a1a7d9533a74591d5ae0381edbfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c067142385ee93b9b215a7e8ec2d064') in 0.002056 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000168 seconds.
-  path: Assets/Mapbox/Examples/_sharedModules/PoiDemo3dPoiVisualizer.asset
-  artifactKey: Guid(a493b030d561f34448a13f55bec8b7fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mapbox/Examples/_sharedModules/PoiDemo3dPoiVisualizer.asset using Guid(a493b030d561f34448a13f55bec8b7fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b21067468bbc3bab3f53cedfd554affb') in 0.001783 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000243 seconds.
-  path: Assets/Mapbox/Examples/_sharedModules/TerrainBuildingVisualizer.asset
-  artifactKey: Guid(5b89dd37c0da7984e9b4e47434079059) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mapbox/Examples/_sharedModules/TerrainBuildingVisualizer.asset using Guid(5b89dd37c0da7984e9b4e47434079059) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b414483a0bb4f5e702fc4e6ac91bc343') in 0.001773 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.787040 seconds.
-  path: Assets/IATK/Scripts/Controller/Visualisation.cs
-  artifactKey: Guid(018f8d34a0baaa6469c2cd182d3d381a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/IATK/Scripts/Controller/Visualisation.cs using Guid(018f8d34a0baaa6469c2cd182d3d381a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '735a0b2f75992c709c16b13abdafa713') in 0.004864 seconds 
+  Time since last request: 87.492168 seconds.
+  path: Assets/IATK/Resources/Axis.prefab
+  artifactKey: Guid(c061a8385aca89546a8f90550de16cf9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IATK/Resources/Axis.prefab using Guid(c061a8385aca89546a8f90550de16cf9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd536fd5afc92b67d6162ce5b28eb09a8') in 0.116514 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.013043 seconds.
+Registered in 0.011593 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.33 ms, found 6 plugins.
+Refreshing native plugins compatible for Editor in 1.27 ms, found 6 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.204 seconds
+- Completed reload, in  1.177 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1205ms)
-		BeginReloadAssembly (112ms)
+	ReloadAssembly (1177ms)
+		BeginReloadAssembly (111ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (41ms)
-		EndReloadAssembly (1033ms)
+			CreateAndSetChildDomain (38ms)
+		EndReloadAssembly (1008ms)
 			LoadAssemblies (96ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (409ms)
+			SetupTypeCache (319ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (46ms)
-			SetupLoadedEditorAssemblies (379ms)
+			RebuildScriptCaches (53ms)
+			SetupLoadedEditorAssemblies (424ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (98ms)
-				ProcessInitializeOnLoadAttributes (210ms)
-				ProcessInitializeOnLoadMethodAttributes (61ms)
+				BeforeProcessingInitializeOnLoad (111ms)
+				ProcessInitializeOnLoadAttributes (234ms)
+				ProcessInitializeOnLoadMethodAttributes (66ms)
 				AfterProcessingInitializeOnLoad (4ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (8ms)
 Platform modules already initialized, skipping
 Shader 'IATK/BarShader': fallback shader 'Transparent' not found
-Refreshing native plugins compatible for Editor in 2.16 ms, found 6 plugins.
+Refreshing native plugins compatible for Editor in 1.21 ms, found 6 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3117 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 126.4 MB.
-System memory in use after: 126.6 MB.
+Unloading 3115 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 127.3 MB.
+System memory in use after: 127.5 MB.
 
-Unloading 105 unused Assets to reduce memory usage. Loaded Objects now: 3602.
-Total: 9.594000 ms (FindLiveObjects: 0.899700 ms CreateObjectMapping: 0.693800 ms MarkObjects: 7.950200 ms  DeleteObjects: 0.049000 ms)
+Unloading 103 unused Assets to reduce memory usage. Loaded Objects now: 3621.
+Total: 6.085700 ms (FindLiveObjects: 0.243300 ms CreateObjectMapping: 0.125300 ms MarkObjects: 5.673600 ms  DeleteObjects: 0.042200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
