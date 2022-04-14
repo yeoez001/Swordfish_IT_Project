@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5863845299799997358}
   - component: {fileID: 5863845299799997359}
   - component: {fileID: 5863845299799997356}
+  - component: {fileID: 6435992829880202270}
   m_Layer: 0
   m_Name: DataPoint
   m_TagString: Untagged
@@ -95,3 +96,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6435992829880202270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5863845299799997357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6664b67010ce8458eacdcd41feb1e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: e2dedede7726c6e498da6ec71a6255e0, type: 2}
+  selectedMaterial: {fileID: 2100000, guid: 60457bf9f318f8d47ab987aea7d23454, type: 2}
