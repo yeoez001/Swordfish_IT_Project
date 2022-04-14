@@ -551,7 +551,6 @@ GameObject:
   - component: {fileID: 224944351995837142}
   - component: {fileID: 23339451002294284}
   - component: {fileID: 114047641085379656}
-  - component: {fileID: 222208704575807136}
   - component: {fileID: 114700309297647410}
   m_Layer: 0
   m_Name: AttributeLabel
@@ -641,14 +640,6 @@ MonoBehaviour:
     width: 0.6458
     height: 1
   m_margins: {x: 0.1, y: 0.05, z: 0.1, w: 0}
---- !u!222 &222208704575807136
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344792008838900}
-  m_CullTransparentMesh: 0
 --- !u!114 &114700309297647410
 MonoBehaviour:
   m_ObjectHideFlags: 0
