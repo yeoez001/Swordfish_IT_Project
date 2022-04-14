@@ -13,7 +13,7 @@ public class VisualisationPoints : MonoBehaviour
         Visualisation visualisation = GetComponentInParent<Visualisation>();
         BigMesh visualisationMesh = visualisation.GetComponentInChildren<BigMesh>();
         vertices = visualisationMesh.getBigMeshVertices();
-        print(vertices.Length);
+        //print(vertices.Length);
         for (int i = 0; i < vertices.Length; i++)
         {
             GameObject point = Instantiate(dataPointPrefab, Vector3.zero, Quaternion.identity);

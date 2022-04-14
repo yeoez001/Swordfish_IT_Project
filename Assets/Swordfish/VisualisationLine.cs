@@ -6,7 +6,7 @@ using IATK;
 [RequireComponent(typeof(LineRenderer))]
 public class VisualisationLine : MonoBehaviour
 {
-    private Vector3[] vertices;
+    public Vector3[] vertices;
 
     void Start()
     {
