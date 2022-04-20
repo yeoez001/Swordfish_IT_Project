@@ -14,53 +14,49 @@ public class RocketTrajectory : MonoBehaviour
     private float lerpPct = 0.0f;
     public float lerpIncrease = 0.1f;
 
-    public float speed = 1.0f;
+    public float speed = 2.0f;
 
+    public bool playing = false;
     private bool load = false;
+
+    private float zOffset = -90.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.localRotation = Quaternion.Euler(180, 0, 180);
-        //// Get the positions from the lineRenderer.
-        //points = new List<Vector3>();
-        //Vector3[] pos = new Vector3[lineRenderer.positionCount];
-        //lineRenderer.GetPositions(pos);
-        //Debug.Log(pos.Length);
-
-        //points.AddRange(pos);
-        //Debug.Log(points.Count);
-        //transform.localPosition = new Vector3(points[0].x, points[0].y, points[0].z);
+        //transform.localRotation = Quaternion.Euler(180, 0, 180);    // I can't remember why this is here. will look into it.
+        Debug.Log(transform.up);
     }
 
     // Update is called once per frame
     void Update()
     {
+        // During first frame, load trajectory points from line renderer and set rocket starting position.
         if (load == false)
         {
             // Get the positions from the lineRenderer.
             points = new List<Vector3>();
             Vector3[] pos = new Vector3[lineRenderer.positionCount];
             lineRenderer.GetPositions(pos);
-            Debug.Log(pos.Length);
 
             points.AddRange(pos);
-            Debug.Log(points.Count);
             transform.localPosition = new Vector3(points[0].x, points[0].y, points[0].z);
 
             Vector3 startTarget = points[index] - transform.localPosition;
-            transform.localRotation = Quaternion.LookRotation(startTarget);
 
+            Debug.Log(transform.up);
+            transform.rotation = Quaternion.AngleAxis(zOffset, Vector3.forward) * Quaternion.LookRotation(startTarget);
             load = true;
         }
 
-        if (index < points.Count)
+        // If the rocket hasn't reached final data point, keep moving along trajectory.
+        if (index < points.Count)// && playing == true)   TAKE AWAY THE COMMENT FOR BUTTONS TO WORK
         {
-            // Check if the rocket has reached the next point destination. Move destination to next point in list.
+            //Check if the rocket has reached the next point destination. Move destination to next point in list.
             if (Vector3.Distance(transform.localPosition, points[index]) < 0.001f)
             {
                 index++;
-                // reset the movement percentage
+                //reset the movement percentage
                 lerpPct = 0.0f;
             }
 
@@ -68,19 +64,55 @@ public class RocketTrajectory : MonoBehaviour
             {
                 var step = speed * Time.deltaTime;
 
-                // Interpolate the rocket between the current position and destination.
-                //transform.position = Vector3.Lerp(transform.position, points[index], lerpPct);
+                //Interpolate the rocket between the current position and destination.
+                // HEY LUKE I COMMENTED THIS OUT BECAUSE THE ROCKET WASNT ANIMATED RIGHT AND REMOVING THIS FIXED IT. IDK WHAT IT DOES
 
                 transform.localPosition = Vector3.MoveTowards(transform.localPosition, points[index], step);
 
                 // Rotate the rocket to be along the current gradient of the line 
-                Vector3 targetDir = points[index] - transform.localPosition;
-                Vector3 newDir = Vector3.RotateTowards(transform.position, targetDir, step, 0.0f);
-                transform.rotation = Quaternion.LookRotation(newDir);
+                Vector3 targetDir = points[index+1] - transform.localPosition;
+                //Vector3 newDir = Vector3.RotateTowards(transform.position, targetDir, step, 0.0f);
+                //transform.rotation = Quaternion.LookRotation(newDir);
+               
+                // TESTING BELOW
 
-                //transform.position = Vector3.Lerp(transform.position, endPoint.position, lerpPct);
+                Quaternion rotate = new Quaternion();
+                if (Quaternion.LookRotation(targetDir).x > 0)
+                {
+                    rotate = Quaternion.AngleAxis(-zOffset, new Vector3(1,0,0)) * Quaternion.LookRotation(targetDir);
+                }
+                if (Quaternion.LookRotation(targetDir).x < 0)
+                {
+                   rotate = Quaternion.AngleAxis(zOffset, Vector3.forward) * Quaternion.LookRotation(targetDir);
+                }
+
+
+
+                // TESTING ABOVE
+
+
+                // To get it back to it was, remove the block above and uncomment line below.
+                //Quaternion rotate = Quaternion.AngleAxis(zOffset, Vector3.forward) * Quaternion.LookRotation(targetDir);
+
+                transform.rotation = rotate;
+
                 lerpPct += lerpIncrease;
             }
         }
+    }
+
+    // Reset the rocket animation back to the beginning data point
+    public void ResetAnim()
+    {
+        index = 1;
+        lerpPct = 0.0f; // Might be able to delete
+
+        // Reset the rocket position and rotation.
+        transform.localPosition = new Vector3(points[0].x, points[0].y, points[0].z);
+        Vector3 startTarget = points[index] - transform.localPosition;
+        transform.localRotation = Quaternion.LookRotation(startTarget);
+
+        // Pause animation.
+        playing = false;
     }
 }
