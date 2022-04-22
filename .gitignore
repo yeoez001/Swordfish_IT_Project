@@ -80,3 +80,5 @@ ehthumbs.db
 [Dd]esktop.ini
 Assets/SerializedFields/
 *.log
+Logs/AssetImportWorker0.log
+Logs/shadercompiler-AssetImportWorker0.log
