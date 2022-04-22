@@ -21,6 +21,9 @@ namespace IATK
         [Tooltip("The custom metadata")]
         public DataMetadata metadata;
 
+        // Added
+        public float[,] dataArray;
+
         private List<DimensionData> dimensionData = new List<DimensionData>();
 
         private Dictionary<string, Dictionary<int, string>> textualDimensionsList = new Dictionary<string, Dictionary<int, string>>();
@@ -295,7 +298,7 @@ namespace IATK
             string[] lines = data.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
             if (loadHeaderImpl(lines))
             {
-                float[,] dataArray = new float[lines.Length - 1, DimensionCount]; // ignore the first line of identifiers
+                dataArray = new float[lines.Length - 1, DimensionCount]; // ignore the first line of identifiers
                 dataCount = dataArray.GetUpperBound(0) + 1;
 
                 if (lines.Length > 1)
@@ -608,10 +611,10 @@ namespace IATK
         /// <param name="matrix"></param>
         /// <param name="row"></param>
         /// <returns></returns>
-        public T[] GetRow<T>(T[,] matrix, int row)
+        public float[] GetRow(float[,] matrix, int row)
         {
             var rowLength = matrix.GetLength(1);
-            var rowVector = new T[rowLength];
+            var rowVector = new float[rowLength];
 
             for (var i = 0; i < rowLength; i++)
                 rowVector[i] = matrix[row, i];
