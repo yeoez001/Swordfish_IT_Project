@@ -67,6 +67,7 @@ public class DataPoint : MonoBehaviour
             }            
         }
     }
+
     public void Select()
     {
         // Was selected, now deselect

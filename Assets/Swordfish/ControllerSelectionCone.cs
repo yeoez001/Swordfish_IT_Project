@@ -31,7 +31,7 @@ public class ControllerSelectionCone : MonoBehaviour
         Hand hand = GetComponentInParent<Hand>();
         if (hand)
         {
-            if (selectAction.GetStateDown(GetComponentInParent<Hand>().handType))
+            if (selectAction.GetStateDown(hand.handType))
             {
                 DataPoint point = other.gameObject.GetComponent<DataPoint>();
                 if (point)
