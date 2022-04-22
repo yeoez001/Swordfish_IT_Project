@@ -11,7 +11,7 @@ public class ControllerSelectionCone : MonoBehaviour
     public Material highlightMaterial;
     public Material selectedMaterial;
 
-    private bool success = true;
+    private bool success = false;
 
     void Update()
     {
