@@ -7,14 +7,14 @@ public class RocketTrajectory : MonoBehaviour
     public GameObject trajectory;
     public LineRenderer lineRenderer;
     int index = 1;
-    private List<Vector3> points;// = new List<Vector3>();
+    private List<Vector3> points;
 
     [SerializeField]
     [Range(0f, 1f)]
     private float lerpPct = 0.0f;
     public float lerpIncrease = 0.1f;
 
-    public float speed = 2.0f;
+    public float speed = 10.0f;
 
     public bool playing = false;
     private bool load = false;
@@ -24,8 +24,8 @@ public class RocketTrajectory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //transform.localRotation = Quaternion.Euler(180, 0, 180);    // I can't remember why this is here. will look into it.
-        Debug.Log(transform.up);
+        //transform.localRotation = Quaternion.Euler(90, 0, 0);    // I can't remember why this is here. will look into it.
+        transform.localRotation = Quaternion.Euler(-90, 0, 0);
     }
 
     // Update is called once per frame
@@ -43,9 +43,9 @@ public class RocketTrajectory : MonoBehaviour
             transform.localPosition = new Vector3(points[0].x, points[0].y, points[0].z);
 
             Vector3 startTarget = points[index] - transform.localPosition;
+            transform.rotation = Quaternion.LookRotation(startTarget);
 
-            Debug.Log(transform.up);
-            transform.rotation = Quaternion.AngleAxis(zOffset, Vector3.forward) * Quaternion.LookRotation(startTarget);
+            //transform.rotation = Quaternion.AngleAxis(zOffset, Vector3.forward) * Quaternion.LookRotation(startTarget);
             load = true;
         }
 
@@ -53,7 +53,7 @@ public class RocketTrajectory : MonoBehaviour
         if (index < points.Count)// && playing == true)   TAKE AWAY THE COMMENT FOR BUTTONS TO WORK
         {
             //Check if the rocket has reached the next point destination. Move destination to next point in list.
-            if (Vector3.Distance(transform.localPosition, points[index]) < 0.001f)
+            if (Vector3.Distance(transform.localPosition, points[index]) < 0.00001f)
             {
                 index++;
                 //reset the movement percentage
@@ -65,26 +65,28 @@ public class RocketTrajectory : MonoBehaviour
                 var step = speed * Time.deltaTime;
 
                 //Interpolate the rocket between the current position and destination.
-                // HEY LUKE I COMMENTED THIS OUT BECAUSE THE ROCKET WASNT ANIMATED RIGHT AND REMOVING THIS FIXED IT. IDK WHAT IT DOES
-
                 transform.localPosition = Vector3.MoveTowards(transform.localPosition, points[index], step);
 
-                // Rotate the rocket to be along the current gradient of the line 
+                // Rotate the rocket to be along the current gradient of the line
                 Vector3 targetDir = points[index+1] - transform.localPosition;
+                //transform.LookAt(targetDir, Vector3.forward);
                 //Vector3 newDir = Vector3.RotateTowards(transform.position, targetDir, step, 0.0f);
                 //transform.rotation = Quaternion.LookRotation(newDir);
-               
+
+
+                transform.rotation = Quaternion.LookRotation(targetDir);
+
                 // TESTING BELOW
 
-                Quaternion rotate = new Quaternion();
-                if (Quaternion.LookRotation(targetDir).x > 0)
-                {
-                    rotate = Quaternion.AngleAxis(-zOffset, new Vector3(1,0,0)) * Quaternion.LookRotation(targetDir);
-                }
-                if (Quaternion.LookRotation(targetDir).x < 0)
-                {
-                   rotate = Quaternion.AngleAxis(zOffset, Vector3.forward) * Quaternion.LookRotation(targetDir);
-                }
+                //Quaternion rotate = new Quaternion();
+                //if (Quaternion.LookRotation(targetDir).x > 0)
+                //{
+                //    rotate = Quaternion.AngleAxis(-zOffset, new Vector3(1, 0, 0)) * Quaternion.LookRotation(targetDir);
+                //}
+                //if (Quaternion.LookRotation(targetDir).x < 0)
+                //{
+                //    rotate = Quaternion.AngleAxis(zOffset, Vector3.forward) * Quaternion.LookRotation(targetDir);
+                //}
 
 
 
@@ -94,7 +96,7 @@ public class RocketTrajectory : MonoBehaviour
                 // To get it back to it was, remove the block above and uncomment line below.
                 //Quaternion rotate = Quaternion.AngleAxis(zOffset, Vector3.forward) * Quaternion.LookRotation(targetDir);
 
-                transform.rotation = rotate;
+                //transform.rotation = rotate;
 
                 lerpPct += lerpIncrease;
             }
