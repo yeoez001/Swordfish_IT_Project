@@ -9,11 +9,9 @@ public class ControllerSelectionCone : MonoBehaviour
     [SerializeField]
     public SteamVR_Action_Boolean selectAction;
     public Material highlightMaterial;
+    public Material selectedMaterial;
 
     private bool success = false;
-
-    private GameObject currentGO;
-    private Material currentGOMat;
 
     void Update()
     {
@@ -28,32 +26,19 @@ public class ControllerSelectionCone : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (currentGO == null)
-        {
-            currentGO = other.gameObject;
-            currentGOMat = currentGO.GetComponent<MeshRenderer>().material;
-            if (highlightMaterial)
-                currentGO.GetComponent<MeshRenderer>().material = highlightMaterial;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject == currentGO)
-        {
-            currentGO.GetComponent<MeshRenderer>().material = currentGOMat;
-            currentGOMat = null;
-            currentGO = null;
-        }
-    }
-
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject == currentGO && selectAction.GetStateDown(GetComponentInParent<Hand>().handType))
+        Hand hand = GetComponentInParent<Hand>();
+        if (hand)
         {
-            Debug.Log("Selected");
+            if (selectAction.GetStateDown(hand.handType))
+            {
+                DataPoint point = other.gameObject.GetComponent<DataPoint>();
+                if (point)
+                {
+                    point.Select();   
+                }
+            }
         }
     }
 }
