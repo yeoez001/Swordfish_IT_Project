@@ -8,10 +8,10 @@ public class ControllerSelectionCone : MonoBehaviour
 {   
     [SerializeField]
     public SteamVR_Action_Boolean selectAction;
-    public Material highlightMaterial;
-    public Material selectedMaterial;
 
     private bool success = false;
+
+    public SteamVR_Behaviour_Pose controllerBehaviourPose;
 
     void Update()
     {
@@ -28,17 +28,13 @@ public class ControllerSelectionCone : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Hand hand = GetComponentInParent<Hand>();
-        if (hand)
+        if (selectAction.GetStateDown(controllerBehaviourPose.inputSource))
         {
-            if (selectAction.GetStateDown(hand.handType))
+            DataPoint point = other.gameObject.GetComponent<DataPoint>();
+            if (point)
             {
-                DataPoint point = other.gameObject.GetComponent<DataPoint>();
-                if (point)
-                {
-                    point.Select();   
-                }
+                point.Select();   
             }
-        }
+        }        
     }
 }

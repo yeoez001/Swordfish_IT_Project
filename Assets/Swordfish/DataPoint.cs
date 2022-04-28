@@ -20,7 +20,7 @@ public class DataPoint : MonoBehaviour
     private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
-        originalMaterial = meshRenderer.material;        
+        originalMaterial = meshRenderer.material;
 
         // Values of data point as a string
         String values = "";
