@@ -98,3 +98,11 @@ The following packages were updated:
   com.unity.xr.legacyinputhelpers from version 2.0.2 to 2.1.9
 The following packages were removed:
   com.unity.package-manager-ui@2.2.0
+
+=== Thu Apr 28 15:21:31 2022
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were added:
+  com.unity.editorcoroutines@1.0.0
