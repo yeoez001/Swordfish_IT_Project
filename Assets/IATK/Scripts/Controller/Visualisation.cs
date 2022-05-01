@@ -493,7 +493,7 @@ namespace IATK
         //<summary>
         //Destroy immediately all the views
         //</summary>
-        void destroyView()
+        public void destroyView()       // I CHANGED THIS TO PUBLIC - LUKE :)
         {
             string backupname = name;
             List<GameObject> children = new List<GameObject>();

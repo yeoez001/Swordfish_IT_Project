@@ -7,11 +7,12 @@ using IATK;
 public class VisualisationLine : MonoBehaviour
 {
     public Vector3[] vertices;
+    public BigMesh visualisationMesh;
 
     void Start()
     {
-        Visualisation visualisation = GetComponentInParent<Visualisation>();
-        BigMesh visualisationMesh = visualisation.GetComponentInChildren<BigMesh>();
+        //Visualisation visualisation = GetComponentInParent<Visualisation>();
+        //BigMesh visualisationMesh = visualisation.GetComponentInChildren<BigMesh>();
         vertices = visualisationMesh.getBigMeshVertices();
 
         LineRenderer line = GetComponent<LineRenderer>();
