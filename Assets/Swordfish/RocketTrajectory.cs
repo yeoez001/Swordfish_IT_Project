@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RocketTrajectory : MonoBehaviour
 {
-    public LineRenderer lineRenderer;
+    public DataFiles dataObjects;
+    private LineRenderer lineRenderer;
     private List<Vector3> points;
 
     public float speed = 1.0f;
@@ -26,12 +27,20 @@ public class RocketTrajectory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         // During first frame, load trajectory points from line renderer and set rocket starting position.
         if (load == false)
         {
             // Get the positions from the lineRenderer.
             points = new List<Vector3>();
+
+            // TODO
+            // THIS IS A TERRIBLE IMPLEMENTATION.
+            // Create a new script and link to each "DataSource". When the point and line objects
+            // have been created in DataFiles script, add them to that data source and then access it properly
+            // from RocketTrajectory.
+            lineRenderer = dataObjects.transform.Find("DataSource1").Find("LineRenderer0").GetComponent<VisualisationLine>().line;
+
+
             Vector3[] pos = new Vector3[lineRenderer.positionCount];
             lineRenderer.GetPositions(pos);
 
@@ -46,7 +55,7 @@ public class RocketTrajectory : MonoBehaviour
         }
 
         // If the rocket hasn't reached final data point, keep moving along trajectory.
-        if (index < points.Count && playing == true) //  TAKE AWAY THE COMMENT FOR BUTTONS TO WORK
+        if (index < points.Count)// && playing == true) //  TAKE AWAY THE COMMENT FOR BUTTONS TO WORK
         {
             //Check if the rocket has reached the next point destination. Move destination to next point in list.
             if (Vector3.Distance(transform.localPosition, points[index]) < 0.00001f)

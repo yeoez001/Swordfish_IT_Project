@@ -8,6 +8,7 @@ public class VisualisationLine : MonoBehaviour
 {
     public Vector3[] vertices;
     public BigMesh visualisationMesh;
+    public LineRenderer line;
 
     void Start()
     {
@@ -15,7 +16,7 @@ public class VisualisationLine : MonoBehaviour
         //BigMesh visualisationMesh = visualisation.GetComponentInChildren<BigMesh>();
         vertices = visualisationMesh.getBigMeshVertices();
 
-        LineRenderer line = GetComponent<LineRenderer>();
+        line = GetComponent<LineRenderer>();
         line.startWidth=(0.006f);
         line.useWorldSpace = false;
         line.positionCount = vertices.Length;

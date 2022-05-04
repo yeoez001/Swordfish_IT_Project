@@ -1272,7 +1272,7 @@ GameObject:
   - component: {fileID: 139061461}
   - component: {fileID: 139061462}
   m_Layer: 0
-  m_Name: rocket
+  m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1305,7 +1305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0961ae77ada94c4cb9d809e1e8a6ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 235979353}
+  dataObjects: {fileID: 587851126}
   speed: 0.5
   playing: 0
   percent: 0
@@ -2104,6 +2104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vertices: []
   visualisationMesh: {fileID: 0}
+  line: {fileID: 0}
 --- !u!43 &240899598
 Mesh:
   m_ObjectHideFlags: 0
@@ -7654,7 +7655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0961ae77ada94c4cb9d809e1e8a6ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 235979353}
+  dataObjects: {fileID: 0}
   speed: 0.5
   playing: 0
   percent: 0
