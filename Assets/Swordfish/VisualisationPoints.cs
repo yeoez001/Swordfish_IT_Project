@@ -55,4 +55,9 @@ public class VisualisationPoints : MonoBehaviour
             point.SetData(dataSource, dataSource.GetRow(dataSource.dataArray, i));
         }
     }
+
+    public List<GameObject> DataPoints()
+    {
+        return dataPoints;
+    }
 }

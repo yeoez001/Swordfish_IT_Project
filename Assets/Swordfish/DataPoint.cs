@@ -16,6 +16,7 @@ public class DataPoint : MonoBehaviour
     private bool selected = false;
     private MeshRenderer meshRenderer;
     private Material originalMaterial;
+    private String valuesString;
 
     private void Start()
     {
@@ -23,10 +24,10 @@ public class DataPoint : MonoBehaviour
         originalMaterial = meshRenderer.material;
 
         // Values of data point as a string
-        String values = "";
+        valuesString = "";
         for (var i = 0; i < data.Length; i++)
-            values += dataSource[i].Identifier + ": " + data[i] + "\n";
-        valuesDisplay.GetComponentInChildren<Text>().text = values;
+            valuesString += dataSource[i].Identifier + ": " + data[i] + "\n";
+        valuesDisplay.GetComponentInChildren<Text>().text = valuesString;
 
         valuesDisplay.SetActive(false);
     }
@@ -51,7 +52,6 @@ public class DataPoint : MonoBehaviour
             }
         }
     }
-
 
     private void OnTriggerExit(Collider other)
     {
@@ -92,6 +92,10 @@ public class DataPoint : MonoBehaviour
                 valuesDisplay.SetActive(true);
             }
         }
+    }
 
+    public String GetValuesAsString()
+    {
+        return valuesString;
     }
 }

@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class RocketTrajectory : MonoBehaviour
 {
     public DataFiles dataObjects;
     private LineRenderer lineRenderer;
     private List<Vector3> points;
-
+    private List<GameObject> pointsGOs;
     public float speed = 1.0f;
     int index = 1;
+    int indexChange = 1;
     public bool playing = true;
     private bool load = false;
 
     [Range(0,1)]
     public float percent = 0;
+    public Slider percentSlider;
     private float pctChange = 0;
 
     // Start is called before the first frame update
@@ -51,16 +53,23 @@ public class RocketTrajectory : MonoBehaviour
             // Set the rocket's starting rotation
             Vector3 startTarget = points[index+1] - transform.localPosition;
             transform.rotation = Quaternion.LookRotation(startTarget);
+
+            pointsGOs = new List<GameObject>();
+            pointsGOs = dataObjects.transform.Find("DataSource1").GetComponentInChildren<VisualisationPoints>().DataPoints();
+
             load = true;
         }
 
         // If the rocket hasn't reached final data point, keep moving along trajectory.
-        if (index < points.Count)// && playing == true) //  TAKE AWAY THE COMMENT FOR BUTTONS TO WORK
+        if (index < points.Count && playing == true)                                                                        //  TAKE AWAY THE COMMENT FOR BUTTONS TO WORK
         {
+            float change = ((float)index / (float)points.Count);
+            percentSlider.value = change;
             //Check if the rocket has reached the next point destination. Move destination to next point in list.
             if (Vector3.Distance(transform.localPosition, points[index]) < 0.00001f)
             {
                 index++;
+                
             }
 
             if (index < points.Count)
@@ -77,12 +86,13 @@ public class RocketTrajectory : MonoBehaviour
         }
 
         // If the user has moved the slider, move rocket accordingly
-        if (pctChange != percent)
+        else if (pctChange != percent)
         {
             playing = false;
             Slider(percent);
             pctChange = percent;
         }
+        
     }
 
     // Reset the rocket animation back to the beginning data point
@@ -97,6 +107,8 @@ public class RocketTrajectory : MonoBehaviour
 
         // Pause animation.
         playing = false;
+
+        percentSlider.value = 0;
     }
 
     // When the user moves along the slider, move the rocket accordingly.
@@ -110,5 +122,10 @@ public class RocketTrajectory : MonoBehaviour
         transform.localPosition = points[index];
         Vector3 startTarget = points[index+1] - transform.localPosition;
         transform.rotation = Quaternion.LookRotation(startTarget);
+    }
+
+    public DataPoint GetCurrentDataPoint()
+    {
+        return pointsGOs[index].GetComponent<DataPoint>();
     }
 }
