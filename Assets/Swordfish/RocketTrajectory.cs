@@ -8,6 +8,11 @@ public class RocketTrajectory : MonoBehaviour
     private LineRenderer lineRenderer;
     private List<Vector3> points;
     private List<GameObject> pointsGOs;
+
+    public List<LineRenderer> lineList;
+    [SerializeField]
+    private int selected = 0; // Which trajectory from 'lineList' the rocket is connected to
+
     public float speed = 1.0f;
     int index = 1;
     int indexChange = 1;
@@ -35,14 +40,8 @@ public class RocketTrajectory : MonoBehaviour
             // Get the positions from the lineRenderer.
             points = new List<Vector3>();
 
-            // TODO
-            // THIS IS A TERRIBLE IMPLEMENTATION.
-            // Create a new script and link to each "DataSource". When the point and line objects
-            // have been created in DataFiles script, add them to that data source and then access it properly
-            // from RocketTrajectory.
-            lineRenderer = dataObjects.transform.Find("DataSource1").Find("LineRenderer0").GetComponent<VisualisationLine>().line;
-
-
+            // Set the rocket to the first trajectory.
+            lineRenderer = lineList[selected];
             Vector3[] pos = new Vector3[lineRenderer.positionCount];
             lineRenderer.GetPositions(pos);
 

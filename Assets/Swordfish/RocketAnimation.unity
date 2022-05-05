@@ -1306,6 +1306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataObjects: {fileID: 587851126}
+  lineList: []
+  selected: 0
   speed: 0.5
   playing: 0
   percent: 0
@@ -2472,6 +2474,7 @@ GameObject:
   - component: {fileID: 279341155}
   - component: {fileID: 279341154}
   - component: {fileID: 279341153}
+  - component: {fileID: 279341156}
   m_Layer: 0
   m_Name: Visualisation
   m_TagString: Untagged
@@ -2910,6 +2913,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &279341156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279341152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e1d60208d6344b429f236f06def0ab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataSources:
+  - {fileID: 1948952707}
+  - {fileID: 652817738}
+  - {fileID: 55809840}
+  - {fileID: 546475348}
+  - {fileID: 1993267301}
 --- !u!1 &284863087
 GameObject:
   m_ObjectHideFlags: 0
@@ -6241,6 +6262,7 @@ MonoBehaviour:
   visualisation: {fileID: 279341154}
   dataPointPrefab: {fileID: 5863845299799997357, guid: 0858868a1849e774b93a811b300d8ac4,
     type: 3}
+  rocket: {fileID: 139061462}
 --- !u!1 &598356442
 GameObject:
   m_ObjectHideFlags: 0
@@ -7656,6 +7678,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataObjects: {fileID: 0}
+  lineList: []
+  selected: 0
   speed: 0.5
   playing: 0
   percent: 0
@@ -20208,27 +20232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5fb0ca93b55ef4b8d54b512b103341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poseAction:
-    actionPath: /actions/default/in/Pose
-    needsReinit: 0
-  inputSource: 2
-  origin: {fileID: 0}
-  onTransformUpdated:
-    m_PersistentCalls:
-      m_Calls: []
-  onTransformChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onConnectedChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onTrackingChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onDeviceIndexChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  broadcastDeviceChanges: 1
 --- !u!114 &7553291006180278257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20241,13 +20244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e75fe4b0c190eb4ba97e59f062510e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handColliderPrefab: {fileID: 114000010572907066, guid: 73f816dd3537a4c44988f340a5da70b9,
-    type: 3}
-  handCollider: {fileID: 0}
-  clearanceCheckMask:
-    serializedVersion: 2
-    m_Bits: 4294967039
-  hand: {fileID: 0}
 --- !u!114 &7553291006357083997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20260,39 +20256,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5fb0ca93b55ef4b8d54b512b103341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poseAction:
-    actionPath: /actions/default/in/Pose
-    needsReinit: 0
-  inputSource: 1
-  origin: {fileID: 0}
-  onTransformUpdated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onTransformChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onConnectedChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onTrackingChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onDeviceIndexChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  broadcastDeviceChanges: 1
 --- !u!114 &7553291007297445171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20305,9 +20268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aaa8a3afb932fe478757c1e89cf0cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initializeSteamVROnAwake: 1
-  doNotDestroy: 1
-  steamvr_render: {fileID: 0}
 --- !u!114 &7553291017605959023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20320,13 +20280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46fe9e0b23166454c8cb73040321d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texture: {fileID: 8400000, guid: 005ed5a6df2f5ff468efd6497d37fefa, type: 2}
-  scale: 3
-  distance: 1.25
-  alpha: 1
-  uvOffset: {x: 0, y: 0, z: 1, w: 1}
-  mouseScale: {x: 1, y: 1}
-  inputMethod: 0
 --- !u!114 &7553291017797914583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20339,13 +20292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e75fe4b0c190eb4ba97e59f062510e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handColliderPrefab: {fileID: 114000013167804218, guid: 2f378ddf4e9373548a3708d26c1d75a4,
-    type: 3}
-  handCollider: {fileID: 0}
-  clearanceCheckMask:
-    serializedVersion: 2
-    m_Bits: 4294967039
-  hand: {fileID: 0}
 --- !u!114 &7553291017820248029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20358,24 +20304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7434e43635fb2924583f5e0f2fb6ed3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snapAngle: 45
-  showTurnAnimation: 1
-  snapTurnSource: {fileID: 7522417492826033325}
-  rotateSound: {fileID: 8300000, guid: 973c016de5a1cf34ebb6b3477ca2da5c, type: 3}
-  rotateRightFX: {fileID: 7585224848898209277}
-  rotateLeftFX: {fileID: 7585224848993119453}
-  snapLeftAction:
-    actionPath: /actions/default/in/SnapTurnLeft
-    needsReinit: 0
-  snapRightAction:
-    actionPath: /actions/default/in/SnapTurnRight
-    needsReinit: 0
-  fadeScreen: 1
-  fadeTime: 0.1
-  screenFadeColor: {r: 0, g: 0, b: 0, a: 1}
-  distanceFromFace: 1.3
-  additionalOffset: {x: 0, y: -0.3, z: 0}
-  canTurnEverySeconds: 0.5
 --- !u!114 &7553291017914923045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20388,13 +20316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27991c206a5e66147bb8ee3ef31c8bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionSet:
-    actionSetPath: /actions/default
-  forSources: 0
-  disableAllOtherActionSets: 0
-  activateOnStart: 1
-  deactivateOnDestroy: 1
-  initialPriority: 0
 --- !u!1 &7585224842258821181
 GameObject:
   m_ObjectHideFlags: 0
@@ -21206,8 +21127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614394cf13c94054c9b22e5e371fcb5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showController: 1
-  showHands: 0
 --- !u!1 &7586221551411418465
 GameObject:
   m_ObjectHideFlags: 0
@@ -21837,16 +21756,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1001a6626353541ab4d4b39f4c3569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerMaterial: {fileID: 2100000, guid: 11b050e661ec0cf48a289a7266451e91, type: 2}
-  urpControllerMaterial: {fileID: 2100000, guid: 70a2eb634d7ed434b86d36f190fcf3a1,
-    type: 2}
-  flashColor: {r: 1, g: 0.9170069, b: 0.453, a: 0.709}
-  textHintPrefab: {fileID: 140952, guid: 5fa42bb9e52706a42b8a1eaf0b54326a, type: 3}
-  hapticFlash:
-    actionPath: /actions/default/out/Haptic
-    needsReinit: 0
-  autoSetWithControllerRangeOfMotion: 1
-  debugHints: 0
 --- !u!114 &7586221551421529909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21859,45 +21768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e3e4511966ba94d8ba0b98c6c62f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherHand: {fileID: 0}
-  handType: 0
-  trackedObject: {fileID: 0}
-  grabPinchAction:
-    actionPath: /actions/default/in/GrabPinch
-    needsReinit: 0
-  grabGripAction:
-    actionPath: /actions/default/in/GrabGrip
-    needsReinit: 0
-  hapticAction:
-    actionPath: /actions/default/out/Haptic
-    needsReinit: 0
-  uiInteractAction:
-    actionPath: /actions/default/in/InteractUI
-    needsReinit: 0
-  useHoverSphere: 1
-  hoverSphereTransform: {fileID: 0}
-  hoverSphereRadius: 0.05
-  hoverLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  hoverUpdateInterval: 0.1
-  useControllerHoverComponent: 1
-  controllerHoverComponent: tip
-  controllerHoverRadius: 0.05
-  useFingerJointHover: 1
-  fingerJointHover: 10
-  fingerJointHoverRadius: 0.05
-  objectAttachmentPoint: {fileID: 0}
-  noSteamVRFallbackCamera: {fileID: 7586221551412066895}
-  noSteamVRFallbackMaxDistanceNoItem: 10
-  noSteamVRFallbackMaxDistanceWithItem: 0.5
-  renderModelPrefab: {fileID: 0}
-  renderModels: []
-  mainRenderModel: {fileID: 0}
-  hoverhighlightRenderModel: {fileID: 0}
-  showDebugText: 0
-  spewDebugText: 0
-  showDebugInteractables: 0
 --- !u!114 &7586221551421538227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21910,16 +21780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1001a6626353541ab4d4b39f4c3569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerMaterial: {fileID: 2100000, guid: 11b050e661ec0cf48a289a7266451e91, type: 2}
-  urpControllerMaterial: {fileID: 2100000, guid: 70a2eb634d7ed434b86d36f190fcf3a1,
-    type: 2}
-  flashColor: {r: 1, g: 0.9170069, b: 0.453, a: 0.709}
-  textHintPrefab: {fileID: 140952, guid: 5fa42bb9e52706a42b8a1eaf0b54326a, type: 3}
-  hapticFlash:
-    actionPath: /actions/default/out/Haptic
-    needsReinit: 0
-  autoSetWithControllerRangeOfMotion: 1
-  debugHints: 0
 --- !u!114 &7586221551421545117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21932,8 +21792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e979227f3384fac4b8ca0b3550bf005c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  externalCamera: {fileID: 0}
-  externalCameraConfigPath: externalcamera.cfg
 --- !u!114 &7586221551421549589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21946,9 +21804,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6043f3be9a21bd74281f9770463bea00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  shiftSpeed: 16
-  showInstructions: 1
 --- !u!114 &7586221551421555733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21961,22 +21816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202a6e24b48d1684398409c47161adcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackingOriginTransform: {fileID: 7586221551411602713}
-  hmdTransforms:
-  - {fileID: 7586221551411625225}
-  - {fileID: 7586221551411553443}
-  hands:
-  - {fileID: 7586221551421572867}
-  - {fileID: 7586221551421622173}
-  - {fileID: 7586221551421529909}
-  headCollider: {fileID: 7586221551415292079}
-  rigSteamVR: {fileID: 7586221551411416775}
-  rig2DFallback: {fileID: 7586221551411424179}
-  audioListener: {fileID: 7586221551411577441}
-  headsetOnHead:
-    actionPath: /actions/default/in/HeadsetOnHead
-    needsReinit: 0
-  allowToggleTo2D: 1
 --- !u!114 &7586221551421559407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21989,8 +21828,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ca2cc563cc33f542a5d9f8f661184ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highLightMaterial: {fileID: 2100000, guid: 7b939e5e799d98a469f594828ebab52e, type: 2}
-  fireHapticsOnHightlight: 1
 --- !u!114 &7586221551421559709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22030,7 +21867,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1731d642c0b250b48bb8cdfb153d9792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  head: {fileID: 0}
 --- !u!114 &7586221551421572867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22043,46 +21879,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e3e4511966ba94d8ba0b98c6c62f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherHand: {fileID: 7586221551421622173}
-  handType: 1
-  trackedObject: {fileID: 0}
-  grabPinchAction:
-    actionPath: /actions/default/in/GrabPinch
-    needsReinit: 0
-  grabGripAction:
-    actionPath: /actions/default/in/GrabGrip
-    needsReinit: 0
-  hapticAction:
-    actionPath: /actions/default/out/Haptic
-    needsReinit: 0
-  uiInteractAction:
-    actionPath: /actions/default/in/InteractUI
-    needsReinit: 0
-  useHoverSphere: 1
-  hoverSphereTransform: {fileID: 7586764044691734931}
-  hoverSphereRadius: 0.075
-  hoverLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  hoverUpdateInterval: 0.1
-  useControllerHoverComponent: 1
-  controllerHoverComponent: tip
-  controllerHoverRadius: 0.15
-  useFingerJointHover: 1
-  fingerJointHover: 10
-  fingerJointHoverRadius: 0.05
-  objectAttachmentPoint: {fileID: 7586764043647047943}
-  noSteamVRFallbackCamera: {fileID: 0}
-  noSteamVRFallbackMaxDistanceNoItem: 10
-  noSteamVRFallbackMaxDistanceWithItem: 0.5
-  renderModelPrefab: {fileID: 1000011547835092, guid: d5082f7d9f947374197e0a97786f4e40,
-    type: 3}
-  renderModels: []
-  mainRenderModel: {fileID: 0}
-  hoverhighlightRenderModel: {fileID: 0}
-  showDebugText: 0
-  spewDebugText: 0
-  showDebugInteractables: 0
 --- !u!114 &7586221551421573205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22107,21 +21903,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0522eaef74d984591c060d05a095c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  borderThickness: -0.07
-  wireframeHeight: 2
-  drawWireframeWhenSelectedOnly: 0
-  drawInGame: 1
-  size: 0
-  color: {r: 0, g: 1, b: 1, a: 0.922}
-  vertices:
-  - {x: 1.0000002, y: 0.01, z: -1.0000002}
-  - {x: -1.0000002, y: 0.01, z: -1.0000002}
-  - {x: -1.0000002, y: 0.01, z: 1.0000002}
-  - {x: 1.0000002, y: 0.01, z: 1.0000002}
-  - {x: 0.93000025, y: 0.01, z: -0.93000025}
-  - {x: -0.93000025, y: 0.01, z: -0.93000025}
-  - {x: -0.93000025, y: 0.01, z: 0.93000025}
-  - {x: 0.93000025, y: 0.01, z: 0.93000025}
 --- !u!114 &7586221551421618847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22134,8 +21915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ca2cc563cc33f542a5d9f8f661184ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highLightMaterial: {fileID: 2100000, guid: 7b939e5e799d98a469f594828ebab52e, type: 2}
-  fireHapticsOnHightlight: 1
 --- !u!114 &7586221551421622173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22148,46 +21927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e3e4511966ba94d8ba0b98c6c62f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherHand: {fileID: 7586221551421572867}
-  handType: 2
-  trackedObject: {fileID: 0}
-  grabPinchAction:
-    actionPath: /actions/default/in/GrabPinch
-    needsReinit: 0
-  grabGripAction:
-    actionPath: /actions/default/in/GrabGrip
-    needsReinit: 0
-  hapticAction:
-    actionPath: /actions/default/out/Haptic
-    needsReinit: 0
-  uiInteractAction:
-    actionPath: /actions/default/in/InteractUI
-    needsReinit: 0
-  useHoverSphere: 1
-  hoverSphereTransform: {fileID: 7586221551411569787}
-  hoverSphereRadius: 0.075
-  hoverLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  hoverUpdateInterval: 0.1
-  useControllerHoverComponent: 1
-  controllerHoverComponent: tip
-  controllerHoverRadius: 0.15
-  useFingerJointHover: 1
-  fingerJointHover: 10
-  fingerJointHoverRadius: 0.05
-  objectAttachmentPoint: {fileID: 7586221551411563241}
-  noSteamVRFallbackCamera: {fileID: 0}
-  noSteamVRFallbackMaxDistanceNoItem: 10
-  noSteamVRFallbackMaxDistanceWithItem: 0.5
-  renderModelPrefab: {fileID: 1000012617731570, guid: 837f93beb9a614743ae3a2c0ada7c388,
-    type: 3}
-  renderModels: []
-  mainRenderModel: {fileID: 0}
-  hoverhighlightRenderModel: {fileID: 0}
-  showDebugText: 0
-  spewDebugText: 0
-  showDebugInteractables: 0
 --- !u!124 &7586221551422677719
 Behaviour:
   m_ObjectHideFlags: 0
@@ -22208,13 +21947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27991c206a5e66147bb8ee3ef31c8bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionSet:
-    actionSetPath: /actions/default
-  forSources: 0
-  disableAllOtherActionSets: 0
-  activateOnStart: 1
-  deactivateOnDestroy: 1
-  initialPriority: 0
 --- !u!54 &7586221551451236545
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22306,11 +22038,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39204bc22a6ce3d4aa9a75f2e2c167f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectAction:
-    actionPath: /actions/default/in/GrabPinch
-    needsReinit: 0
-  highlightMaterial: {fileID: 2100000, guid: e2dedede7726c6e498da6ec71a6255e0, type: 2}
-  selectedMaterial: {fileID: 2100000, guid: 60457bf9f318f8d47ab987aea7d23454, type: 2}
 --- !u!4 &7586221551451236554
 Transform:
   m_ObjectHideFlags: 0
@@ -22359,11 +22086,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39204bc22a6ce3d4aa9a75f2e2c167f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectAction:
-    actionPath: /actions/default/in/GrabPinch
-    needsReinit: 0
-  highlightMaterial: {fileID: 2100000, guid: e2dedede7726c6e498da6ec71a6255e0, type: 2}
-  selectedMaterial: {fileID: 2100000, guid: 60457bf9f318f8d47ab987aea7d23454, type: 2}
 --- !u!54 &7586221552126530009
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22477,13 +22199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27991c206a5e66147bb8ee3ef31c8bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionSet:
-    actionSetPath: /actions/default
-  forSources: 0
-  disableAllOtherActionSets: 0
-  activateOnStart: 1
-  deactivateOnDestroy: 1
-  initialPriority: 0
 --- !u!136 &7586221552126530015
 CapsuleCollider:
   m_ObjectHideFlags: 0
