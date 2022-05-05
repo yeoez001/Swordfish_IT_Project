@@ -15,12 +15,12 @@ public class DataPoint : MonoBehaviour
     private CSVDataSource dataSource;
     private bool selected = false;
     private MeshRenderer meshRenderer;
-    private Material originalMaterial;    
+    private Material originalMaterial;
 
     private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
-        originalMaterial = meshRenderer.material;        
+        originalMaterial = meshRenderer.material;
 
         // Values of data point as a string
         String values = "";
@@ -39,7 +39,7 @@ public class DataPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ControllerSelectionCone cone = other.gameObject.GetComponent<ControllerSelectionCone>();
+        SelectionCollider cone = other.gameObject.GetComponent<SelectionCollider>();
 
         // Collided with controller 
         if (cone)
@@ -48,14 +48,14 @@ public class DataPoint : MonoBehaviour
             {
                 // Change to Hover colour
                 meshRenderer.material = hoverMaterial;
-            }            
+            }
         }
     }
 
 
     private void OnTriggerExit(Collider other)
     {
-        ControllerSelectionCone cone = other.gameObject.GetComponent<ControllerSelectionCone>();
+        SelectionCollider cone = other.gameObject.GetComponent<SelectionCollider>();
 
         // Collided with controller cone
         if (cone)
@@ -64,7 +64,7 @@ public class DataPoint : MonoBehaviour
             {
                 // Change back to original colour
                 meshRenderer.material = originalMaterial;
-            }            
+            }
         }
     }
 
@@ -79,7 +79,7 @@ public class DataPoint : MonoBehaviour
             {
                 valuesDisplay.SetActive(false);
             }
-        } 
+        }
         // Was not selected, now select
         else
         {
@@ -92,6 +92,6 @@ public class DataPoint : MonoBehaviour
                 valuesDisplay.SetActive(true);
             }
         }
-        
+
     }
 }
