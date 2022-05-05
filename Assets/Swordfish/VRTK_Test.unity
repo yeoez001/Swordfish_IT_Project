@@ -15479,6 +15479,7 @@ MonoBehaviour:
   visualisation: {fileID: 3025942343037292280}
   dataPointPrefab: {fileID: 5863845299799997357, guid: 0858868a1849e774b93a811b300d8ac4,
     type: 3}
+  rocket: {fileID: 3025942343437160012}
 --- !u!1 &3025942342711542766
 GameObject:
   m_ObjectHideFlags: 0
@@ -22752,6 +22753,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataObjects: {fileID: 3025942342711542764}
+  lineList: []
+  selected: 0
   speed: 0.5
   playing: 0
   percent: 0

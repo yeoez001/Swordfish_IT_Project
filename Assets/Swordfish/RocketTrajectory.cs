@@ -54,6 +54,8 @@ public class RocketTrajectory : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(startTarget);
 
             pointsGOs = new List<GameObject>();
+
+            // TODO FIX NEXT WEEK
             pointsGOs = dataObjects.transform.Find("DataSource1").GetComponentInChildren<VisualisationPoints>().DataPoints();
 
             load = true;
