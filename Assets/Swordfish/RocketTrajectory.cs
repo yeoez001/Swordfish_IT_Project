@@ -65,7 +65,11 @@ public class RocketTrajectory : MonoBehaviour
         if (index < points.Count && playing == true)                                                                        //  TAKE AWAY THE COMMENT FOR BUTTONS TO WORK
         {
             float change = ((float)index / (float)points.Count);
-            percentSlider.value = change;
+            if (percentSlider)
+            {
+                percentSlider.value = change;
+            }
+            
             //Check if the rocket has reached the next point destination. Move destination to next point in list.
             if (Vector3.Distance(transform.localPosition, points[index]) < 0.00001f)
             {
@@ -109,7 +113,10 @@ public class RocketTrajectory : MonoBehaviour
         // Pause animation.
         playing = false;
 
-        percentSlider.value = 0;
+        if (percentSlider)
+        {
+            percentSlider.value = 0;
+        }
     }
 
     // When the user moves along the slider, move the rocket accordingly.
