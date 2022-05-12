@@ -51,7 +51,7 @@ public class RocketTrajectory : MonoBehaviour
 
             // Set the rocket's starting rotation
             Vector3 startTarget = points[index+1] - transform.localPosition;
-            transform.rotation = Quaternion.LookRotation(startTarget);
+            transform.localRotation = Quaternion.LookRotation(startTarget);
 
             pointsGOs = new List<GameObject>();
 
@@ -85,8 +85,12 @@ public class RocketTrajectory : MonoBehaviour
                 transform.localPosition = Vector3.MoveTowards(transform.localPosition, points[index], step);
 
                 // Rotate the rocket to be along the current gradient of the line
-                Vector3 targetDir = points[index+1] - transform.localPosition;
-                transform.rotation = Quaternion.LookRotation(targetDir);
+                Vector3 targetDir;
+                if (index != points.Count-1)
+                {
+                    targetDir = points[index + 1] - transform.localPosition;
+                    transform.localRotation = Quaternion.LookRotation(targetDir);
+                }
             }
         }
 
@@ -105,10 +109,11 @@ public class RocketTrajectory : MonoBehaviour
     {
         index = 1;
 
-        // Reset the rocket position and rotation.
+        // Reset the rocket position and local rotation.
         transform.localPosition = new Vector3(points[0].x, points[0].y, points[0].z);
         Vector3 startTarget = points[index] - transform.localPosition;
         transform.localRotation = Quaternion.LookRotation(startTarget);
+
 
         // Pause animation.
         playing = false;
@@ -129,7 +134,8 @@ public class RocketTrajectory : MonoBehaviour
         // Move and rotate rocket
         transform.localPosition = points[index];
         Vector3 startTarget = points[index+1] - transform.localPosition;
-        transform.rotation = Quaternion.LookRotation(startTarget);
+        transform.localRotation = Quaternion.LookRotation(startTarget);
+
     }
 
     public DataPoint GetCurrentDataPoint()

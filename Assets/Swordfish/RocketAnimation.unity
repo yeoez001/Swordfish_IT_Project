@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1311,6 +1311,7 @@ MonoBehaviour:
   speed: 0.5
   playing: 0
   percent: 0
+  percentSlider: {fileID: 0}
 --- !u!1 &149745237
 GameObject:
   m_ObjectHideFlags: 0
@@ -2107,6 +2108,7 @@ MonoBehaviour:
   vertices: []
   visualisationMesh: {fileID: 0}
   line: {fileID: 0}
+  lineMat: {fileID: 0}
 --- !u!43 &240899598
 Mesh:
   m_ObjectHideFlags: 0
@@ -7683,6 +7685,7 @@ MonoBehaviour:
   speed: 0.5
   playing: 0
   percent: 0
+  percentSlider: {fileID: 0}
 --- !u!4 &726335668 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 811222215694539037, guid: 6ace0503f5f5e6e44831975f9aeed05d,
@@ -13162,6 +13165,7 @@ MonoBehaviour:
   dataPointPrefab: {fileID: 5863845299799997357, guid: 0858868a1849e774b93a811b300d8ac4,
     type: 3}
   visualisationMesh: {fileID: 0}
+  pointMat: {fileID: 0}
 --- !u!4 &1404653740
 Transform:
   m_ObjectHideFlags: 0
