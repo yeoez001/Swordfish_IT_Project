@@ -56,4 +56,9 @@ public class DataFiles : MonoBehaviour
         // All the trajectory data is in the visualisationPoints and visualisationLines objects .
         visualisation.destroyView();
     }
+
+    public List<CSVDataSource> GetFiles()
+    {
+        return files;
+    }
 }

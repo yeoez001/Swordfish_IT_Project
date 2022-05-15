@@ -29,6 +29,9 @@ public class RocketTrajectory : MonoBehaviour
     {
         // Offset the initial local rotation of object
         transform.localRotation = Quaternion.Euler(-90, 0, 0);
+
+        points = new List<Vector3>();
+        pointsGOs = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -37,32 +40,13 @@ public class RocketTrajectory : MonoBehaviour
         // During first frame, load trajectory points from line renderer and set rocket starting position.
         if (load == false)
         {
-            // Get the positions from the lineRenderer.
-            points = new List<Vector3>();
-
-            // Set the rocket to the first trajectory.
-            lineRenderer = lineList[selected];
-            Vector3[] pos = new Vector3[lineRenderer.positionCount];
-            lineRenderer.GetPositions(pos);
-
-            // Set the rocket's starting position
-            points.AddRange(pos);
-            transform.localPosition = new Vector3(points[0].x, points[0].y, points[0].z);
-
-            // Set the rocket's starting rotation
-            Vector3 startTarget = points[index+1] - transform.localPosition;
-            transform.localRotation = Quaternion.LookRotation(startTarget);
-
-            pointsGOs = new List<GameObject>();
-
-            // TODO FIX NEXT WEEK
-            pointsGOs = dataObjects.transform.Find("DataSource1").GetComponentInChildren<VisualisationPoints>().DataPoints();
-
+            // Set the selected trajectory to the first data source
+            SetSelectedTrajectory(0);
             load = true;
         }
 
         // If the rocket hasn't reached final data point, keep moving along trajectory.
-        if (index < points.Count && playing == true)                                                                        //  TAKE AWAY THE COMMENT FOR BUTTONS TO WORK
+        if (index < points.Count) // && playing == true)                                     //  TAKE AWAY THE COMMENT FOR BUTTONS TO WORK
         {
             float change = ((float)index / (float)points.Count);
             if (percentSlider)
@@ -135,11 +119,31 @@ public class RocketTrajectory : MonoBehaviour
         transform.localPosition = points[index];
         Vector3 startTarget = points[index+1] - transform.localPosition;
         transform.localRotation = Quaternion.LookRotation(startTarget);
-
     }
 
     public DataPoint GetCurrentDataPoint()
     {
         return pointsGOs[index].GetComponent<DataPoint>();
+    }
+
+    public void SetSelectedTrajectory(int index)
+    {
+        // Get the positions from the lineRenderer.
+        points.Clear();
+
+        // Set the rocket to the first trajectory.
+        lineRenderer = lineList[index];
+        Vector3[] pos = new Vector3[lineRenderer.positionCount];
+        lineRenderer.GetPositions(pos);
+
+        // Set the rocket's starting position and rotation
+        points.AddRange(pos);
+        ResetAnim();
+
+        pointsGOs.Clear();
+        pointsGOs = dataObjects.GetFiles()[index].GetComponentInChildren<VisualisationPoints>().DataPoints();
+
+        // TODO FIX NEXT WEEK
+        //pointsGOs = dataObjects.transform.Find("DataSource1").GetComponentInChildren<VisualisationPoints>().DataPoints();
     }
 }
