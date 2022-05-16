@@ -2477,6 +2477,7 @@ GameObject:
   - component: {fileID: 279341154}
   - component: {fileID: 279341153}
   - component: {fileID: 279341156}
+  - component: {fileID: 279341157}
   m_Layer: 0
   m_Name: Visualisation
   m_TagString: Untagged
@@ -2547,148 +2548,8 @@ MonoBehaviour:
     maxFilter: 1
     minScale: 0
     maxScale: 1
-  - Attribute: '# Time (s)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' X (m)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Y (m)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Z (m)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Vx (m/s)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Vy (m/s)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Vz (m/s)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' e0'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' e1'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' e2'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' e3'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: " \u03C91 (rad/s)"
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: " \u03C92 (rad/s)"
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: " \u03C93 (rad/s)"
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
   yScatterplotMatrixDimensions:
   - Attribute: Undefined
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: '# Time (s)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' X (m)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Y (m)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Z (m)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Vx (m/s)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Vy (m/s)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Vz (m/s)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' e0'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' e1'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' e2'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' e3'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: " \u03C91 (rad/s)"
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: " \u03C92 (rad/s)"
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: " \u03C93 (rad/s)"
     minFilter: 0
     maxFilter: 1
     minScale: 0
@@ -2699,148 +2560,8 @@ MonoBehaviour:
     maxFilter: 1
     minScale: 0
     maxScale: 1
-  - Attribute: '# Time (s)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' X (m)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Y (m)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Z (m)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Vx (m/s)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Vy (m/s)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Vz (m/s)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' e0'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' e1'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' e2'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' e3'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: " \u03C91 (rad/s)"
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: " \u03C92 (rad/s)"
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: " \u03C93 (rad/s)"
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
   parallelCoordinatesDimensions:
   - Attribute: Undefined
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: '# Time (s)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' X (m)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Y (m)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Z (m)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Vx (m/s)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Vy (m/s)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' Vz (m/s)'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' e0'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' e1'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' e2'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: ' e3'
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: " \u03C91 (rad/s)"
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: " \u03C92 (rad/s)"
-    minFilter: 0
-    maxFilter: 1
-    minScale: 0
-    maxScale: 1
-  - Attribute: " \u03C93 (rad/s)"
     minFilter: 0
     maxFilter: 1
     minScale: 0
@@ -2933,6 +2654,20 @@ MonoBehaviour:
   - {fileID: 55809840}
   - {fileID: 546475348}
   - {fileID: 1993267301}
+--- !u!114 &279341157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279341152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96fbb520f10a4857965ac8e85f93652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filter: None
+  files: {fileID: 587851126}
 --- !u!1 &284863087
 GameObject:
   m_ObjectHideFlags: 0

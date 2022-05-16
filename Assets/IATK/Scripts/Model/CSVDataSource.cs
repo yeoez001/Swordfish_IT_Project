@@ -71,6 +71,11 @@ namespace IATK
             get { return dataCount; }
         }
 
+        public List<DimensionData> getDimensions()
+        {
+            return dimensionData;
+        }
+
         /// <summary>
         /// Gets the dimension data at the specified index.
         /// </summary>
