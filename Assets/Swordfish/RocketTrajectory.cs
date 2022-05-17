@@ -46,7 +46,7 @@ public class RocketTrajectory : MonoBehaviour
         }
 
         // If the rocket hasn't reached final data point, keep moving along trajectory.
-        if (index < points.Count) // && playing == true)                                     //  TAKE AWAY THE COMMENT FOR BUTTONS TO WORK
+        if (index < points.Count && playing == true)                                     //  TAKE AWAY THE COMMENT FOR BUTTONS TO WORK
         {
             float change = ((float)index / (float)points.Count);
             if (percentSlider)
@@ -91,6 +91,12 @@ public class RocketTrajectory : MonoBehaviour
     // Reset the rocket animation back to the beginning data point
     public void ResetAnim()
     {
+        // Only stop animation if rocket is at the end of the trajectory.  Else, keep it as it was previously. 
+        if (index >= points.Count)
+        {
+            playing = false;
+        }
+
         index = 1;
 
         // Reset the rocket position and local rotation.
@@ -99,8 +105,7 @@ public class RocketTrajectory : MonoBehaviour
         transform.localRotation = Quaternion.LookRotation(startTarget);
 
 
-        // Pause animation.
-        playing = false;
+       
 
         if (percentSlider)
         {
