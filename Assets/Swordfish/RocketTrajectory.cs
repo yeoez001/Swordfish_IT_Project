@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using IATK;
+
 public class RocketTrajectory : MonoBehaviour
 {
     public DataFiles dataObjects;
@@ -10,16 +12,13 @@ public class RocketTrajectory : MonoBehaviour
     private List<GameObject> pointsGOs;
 
     public List<LineRenderer> lineList;
-    [SerializeField]
-    private int selected = 0; // Which trajectory from 'lineList' the rocket is connected to
 
     public float speed = 1.0f;
     int index = 1;
-    int indexChange = 1;
     public bool playing = true;
     private bool load = false;
 
-    [Range(0,1)]
+    [Range(0, 1)]
     public float percent = 0;
     public Slider percentSlider;
     private float pctChange = 0;
@@ -49,16 +48,16 @@ public class RocketTrajectory : MonoBehaviour
         if (index < points.Count && playing == true)                                     //  TAKE AWAY THE COMMENT FOR BUTTONS TO WORK
         {
             float change = ((float)index / (float)points.Count);
-            if (percentSlider)
+            if (percentSlider && change > 0)
             {
                 percentSlider.value = change;
             }
-            
+
             //Check if the rocket has reached the next point destination. Move destination to next point in list.
             if (Vector3.Distance(transform.localPosition, points[index]) < 0.00001f)
             {
                 index++;
-                
+
             }
 
             if (index < points.Count)
@@ -70,7 +69,7 @@ public class RocketTrajectory : MonoBehaviour
 
                 // Rotate the rocket to be along the current gradient of the line
                 Vector3 targetDir;
-                if (index != points.Count-1)
+                if (index != points.Count - 1)
                 {
                     targetDir = points[index + 1] - transform.localPosition;
                     transform.localRotation = Quaternion.LookRotation(targetDir);
@@ -85,7 +84,7 @@ public class RocketTrajectory : MonoBehaviour
             Slider(percent);
             pctChange = percent;
         }
-        
+
     }
 
     // Reset the rocket animation back to the beginning data point
@@ -104,9 +103,6 @@ public class RocketTrajectory : MonoBehaviour
         Vector3 startTarget = points[index] - transform.localPosition;
         transform.localRotation = Quaternion.LookRotation(startTarget);
 
-
-       
-
         if (percentSlider)
         {
             percentSlider.value = 0;
@@ -122,13 +118,19 @@ public class RocketTrajectory : MonoBehaviour
 
         // Move and rotate rocket
         transform.localPosition = points[index];
-        Vector3 startTarget = points[index+1] - transform.localPosition;
+        Vector3 startTarget = points[index + 1] - transform.localPosition;
         transform.localRotation = Quaternion.LookRotation(startTarget);
     }
 
     public DataPoint GetCurrentDataPoint()
     {
-        return pointsGOs[index].GetComponent<DataPoint>();
+        
+        if (index < pointsGOs.Count)
+        {
+            return pointsGOs[index].GetComponent<DataPoint>();
+        }
+        //Debug.Log("index :" + index + " pointsGOs count: " + pointsGOs.Count);
+        return null;
     }
 
     public void SetSelectedTrajectory(int index)
@@ -145,10 +147,19 @@ public class RocketTrajectory : MonoBehaviour
         points.AddRange(pos);
         ResetAnim();
 
-        pointsGOs.Clear();
         pointsGOs = dataObjects.GetFiles()[index].GetComponentInChildren<VisualisationPoints>().DataPoints();
+    }
 
-        // TODO FIX NEXT WEEK
-        //pointsGOs = dataObjects.transform.Find("DataSource1").GetComponentInChildren<VisualisationPoints>().DataPoints();
+    public void SetSelectedTrajectory(GameObject trajectoryObject)
+    {
+        // Get the data source that the trajectoryObject derives from. trajectoryObject is either the line or data point
+        // and thus, would be child of the data source.
+        CSVDataSource dataSource = trajectoryObject.GetComponentInParent(typeof(CSVDataSource)) as CSVDataSource;
+
+        if (dataSource)
+        {
+            int dataSourceIndex = dataObjects.GetFiles().IndexOf(dataSource);
+            SetSelectedTrajectory(dataSourceIndex);
+        }
     }
 }

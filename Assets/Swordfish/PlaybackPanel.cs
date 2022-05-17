@@ -11,6 +11,7 @@ public class PlaybackPanel : MonoBehaviour
 
     private TextMeshPro textMeshPro;
     private Dropdown dropdown;
+    private DataPoint currentDataPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +42,9 @@ public class PlaybackPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textMeshPro.text = rocket.GetCurrentDataPoint().GetValuesAsString();
+        currentDataPoint = rocket.GetCurrentDataPoint();
+        if (currentDataPoint)
+            textMeshPro.text = currentDataPoint.GetValuesAsString();
     }
 
     // Plays/resumes the rocket animation
