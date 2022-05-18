@@ -46,12 +46,20 @@ public class Filtering : MonoBehaviour
 {
     public static List<string> dataNames = new List<string>() { "None" };// = new List<string>();
     [ListPopup(typeof(Filtering), "dataNames")]
-    public string filterValue;
+    public string filterVariable;
+
+    enum FilterType
+    {
+        None,
+        LessThan,
+        LargerThan,
+        Between
+    }
+    [SerializeField]
+    private FilterType filterType = new FilterType();
 
     [SerializeField]
-    private float maxFilter = 0.0f;
-    [SerializeField]
-    private float minFilter = 0.0f;
+    private float filterValue = 0.0f;
     [SerializeField]
     private bool doFilter = false;
 
@@ -81,32 +89,44 @@ public class Filtering : MonoBehaviour
         }
 
         // Do filter logic
-        if (filterValue != "None" && filterValue != currentFilter || doFilter == true) {
-            int index = dataNames.IndexOf(filterValue);
+        if (doFilter == true) {
+            int index = dataNames.IndexOf(filterVariable)-1;
 
-            if (doFilter == true)
+            if (filterVariable != "None")
             {
-                filterBetween(index, minFilter, maxFilter);
-                doFilter = false;
+                // Determine filter type
+                if (filterType == FilterType.LargerThan)
+                {
+                    filterAbove(index, filterValue);
+                }
+                else if (filterType == FilterType.LessThan)
+                {
+                    filterBelow(index, filterValue);
+                }
+                else if (filterType == FilterType.Between)
+                {
+                    //filterBetween(index, filterValue, filterMin);
+                }
             }
-
-            currentFilter = filterValue;
+            doFilter = false;
+            currentFilter = filterVariable;
         }
-        else if (filterValue == "None" && filterValue != currentFilter)
+        else if (filterVariable == "None" && filterVariable != currentFilter)
         {
             resetFilters();
-            currentFilter = filterValue;
+            currentFilter = filterVariable;
         }
     }
 
-    // Filter trajectories based on provided values
-    public void filterBetween(int index, float min, float max) 
+    // Hide all values BELOW a provided filterValue
+    public void filterAbove(int index, float filterValue) 
     {
         try
         {
             for (int i = 0; i < dataObjects.Count; i++)
             {
-                if (dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].MetaData.maxValue <= max)
+                Debug.Log(dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].MetaData.maxValue);
+                if (dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].MetaData.maxValue <= filterValue)
                 {
                     files.transform.GetChild(i).gameObject.SetActive(false);
                 }
@@ -116,6 +136,45 @@ public class Filtering : MonoBehaviour
         {
             Debug.Log(e);
         }
+    }
+
+    // Hide all values ABOVE a provided filterValue
+    public void filterBelow(int index, float filterValue)
+    {
+        try
+        {
+            for (int i = 0; i < dataObjects.Count; i++)
+            {
+                Debug.Log(dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].MetaData.maxValue);
+                if (dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].MetaData.maxValue >= filterValue)
+                {
+                    files.transform.GetChild(i).gameObject.SetActive(false);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+    }
+
+    // Hide all values ABOVE a provided filterValue
+    public void filterBetween(int index, float maxValue, float minValue)
+    {
+        //try
+        //{
+        //    for (int i = 0; i < dataObjects.Count; i++)
+        //    {
+        //        if (dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].MetaData.maxValue >= filterValue)
+        //        {
+        //            files.transform.GetChild(i).gameObject.SetActive(false);
+        //        }
+        //    }
+        //}
+        //catch (Exception e)
+        //{
+        //    Debug.Log(e);
+        //}
     }
 
     // Remove all filters

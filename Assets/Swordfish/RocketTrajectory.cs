@@ -46,7 +46,7 @@ public class RocketTrajectory : MonoBehaviour
         }
 
         // If the rocket hasn't reached final data point, keep moving along trajectory.
-        if (index < points.Count) // && playing == true)                                     //  TAKE AWAY THE COMMENT FOR BUTTONS TO WORK
+        if (index < points.Count && playing == true)                                     //  TAKE AWAY THE COMMENT FOR BUTTONS TO WORK
         {
             float change = ((float)index / (float)points.Count);
             if (percentSlider)
