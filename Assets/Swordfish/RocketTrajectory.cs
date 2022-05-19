@@ -19,9 +19,13 @@ public class RocketTrajectory : MonoBehaviour
     private bool load = false;
 
     [Range(0, 1)]
-    public float percent = 0;
-    public Slider percentSlider;
+    public float percent = 0;   
     private float pctChange = 0;
+
+    // UI Components
+    public PlaybackPanel playbackPanel;
+    private Slider percentSlider;
+    private Dropdown dropdown;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +35,9 @@ public class RocketTrajectory : MonoBehaviour
 
         points = new List<Vector3>();
         pointsGOs = new List<GameObject>();
+
+        percentSlider = playbackPanel.GetPercentSlider();
+        dropdown = playbackPanel.GetDropdown();
     }
 
     // Update is called once per frame
@@ -133,13 +140,13 @@ public class RocketTrajectory : MonoBehaviour
         return null;
     }
 
-    public void SetSelectedTrajectory(int index)
+    public void SetSelectedTrajectory(int selectedIndex)
     {
         // Get the positions from the lineRenderer.
         points.Clear();
 
         // Set the rocket to the first trajectory.
-        lineRenderer = lineList[index];
+        lineRenderer = lineList[selectedIndex];
         Vector3[] pos = new Vector3[lineRenderer.positionCount];
         lineRenderer.GetPositions(pos);
 
@@ -147,7 +154,9 @@ public class RocketTrajectory : MonoBehaviour
         points.AddRange(pos);
         ResetAnim();
 
-        pointsGOs = dataObjects.GetFiles()[index].GetComponentInChildren<VisualisationPoints>().DataPoints();
+        pointsGOs = dataObjects.GetFiles()[selectedIndex].GetComponentInChildren<VisualisationPoints>().DataPoints();
+
+        dropdown.value = selectedIndex;
     }
 
     public void SetSelectedTrajectory(GameObject trajectoryObject)

@@ -12,12 +12,14 @@ public class PlaybackPanel : MonoBehaviour
     private TextMeshPro textMeshPro;
     private Dropdown dropdown;
     private DataPoint currentDataPoint;
+    private Slider percentSlider;
 
     // Start is called before the first frame update
     void Start()
     {
         textMeshPro = GetComponentInChildren<TextMeshPro>();
         dropdown = GetComponentInChildren<Dropdown>();
+        percentSlider = GetComponentInChildren<Slider>();
         
         // Setup dropdown UI with list of data source associated with the visualisation that the rocket is from
         if (dropdown)
@@ -74,9 +76,18 @@ public class PlaybackPanel : MonoBehaviour
     }
 
     // Update the trajectory that the rocket is on based on the dropdown value
-    public void updateSelectedTrajectory()
+    public void UpdateSelectedTrajectory()
     {
         rocket.SetSelectedTrajectory(dropdown.value);
     }
 
+    public Slider GetPercentSlider()
+    {
+        return percentSlider;
+    }
+
+    public Dropdown GetDropdown()
+    {
+        return dropdown;
+    }
 }
