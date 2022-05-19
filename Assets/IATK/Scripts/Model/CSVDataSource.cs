@@ -475,8 +475,31 @@ namespace IATK
         {
             //for each dimensions (column) normalise all data
             float[] result = GetCol(dataArray, col);
-            float minDimension = result.Min();
-            float maxDimension = result.Max();
+            //float minDimension = result.Min();
+            //float maxDimension = result.Max();
+
+            // FIX THIS UP TO DYNAMICALLY SET THE MIN AND MAX BASED ON
+            // ALL DATA FILES. MAY NEED TO ADD MIN AND MAX INPUT VARIABLES
+            float minDimension = 0.0f;
+            float maxDimension = 1000.0f;
+            if (col == 1)
+            {
+                minDimension = 0.0f;
+                maxDimension = 3100.0f;
+            }
+            else if (col == 2)
+            {
+                minDimension = 0.0f;
+                maxDimension = 3500.0f;
+            }
+            else if (col == 3)
+            {
+                minDimension = 1471.466f;
+                maxDimension = 5000.0f;
+            }
+            // FIX ABOVE
+
+
 
             if (minDimension == maxDimension)
             {
