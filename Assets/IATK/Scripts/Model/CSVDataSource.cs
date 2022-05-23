@@ -547,6 +547,70 @@ namespace IATK
             return result;
         }
 
+// LUKE EDIT
+        // Repopulate the data dimensions based on gobal scaling of multipl data files
+        public void repopulate(float[] min, float[] max)
+        {
+            // Populate data structure
+            for (int i = 0; i < DimensionCount; ++i)
+            {
+                dimensionData[i].setData(NormaliseCol(dataArray, metadata, i, min[i], max[i]), textualDimensionsList);
+            }
+        }
+
+        // Normalising all data for MULTIPLE files to global min/max
+        private float[] NormaliseCol(float[,] dataArray, DataMetadata metadataPreset, int col, float minDimension, float maxDimension)
+        {
+            //for each dimensions (column) normalise all data
+            float[] result = GetCol(dataArray, col);
+
+            if (minDimension == maxDimension)
+            {
+                // where there are no distinct values, need the dimension to be distinct 
+                // otherwise lots of maths breaks with division by zero, etc.
+                // this is the most elegant hack I could think of, but should be fixed properly in future
+                minDimension -= 1.0f;
+                maxDimension += 1.0f;
+            }
+
+            DataSource.DimensionData.Metadata metadata = dimensionData[col].MetaData;
+
+            metadata.minValue = minDimension;
+            metadata.maxValue = maxDimension;
+            metadata.categories = result.Distinct().Select(x => normaliseValue(x, minDimension, maxDimension, 0.0f, 1.0f)).ToArray();
+            metadata.categoryCount = metadata.categories.Count();
+            metadata.binCount = (int)(maxDimension - minDimension + 1);
+
+            if (metadataPreset != null)
+            {
+                foreach (var binSizePreset in metadataPreset.BinSizePreset)
+                {
+                    if (binSizePreset.index == col)
+                    {
+                        metadata.binCount = binSizePreset.binCount;
+                    }
+                }
+            }
+
+            dimensionData[col].setMetadata(metadata);
+
+            for (int j = 0; j < result.Length; j++)
+            {
+                if (minDimension < maxDimension)
+                {
+                    result[j] = normaliseValue(result[j], minDimension, maxDimension, 0f, 1f);
+                }
+                else
+                {
+                    // avoid NaNs or nonsensical normalization
+                    result[j] = 0;
+                }
+            }
+
+            return result;
+        }
+// LUKE EDIT ABOVE
+
         /// <summary>
         /// internal function: normalises all the data input between 0 and 1
         /// </summary>

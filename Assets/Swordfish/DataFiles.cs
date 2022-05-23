@@ -8,15 +8,54 @@ public class DataFiles : MonoBehaviour
     public List<CSVDataSource> files;
     public Visualisation visualisation;
     public GameObject dataPointPrefab;
+    public float[] dimensionMin;
+    public float[] dimensionMax;
 
     [SerializeField]
     private RocketTrajectory rocket;
 
     private void Start()
     {
+        dimensionMin = new float[files[0].DimensionCount];
+        dimensionMax = new float[files[0].DimensionCount];
+
+        // TODO
+        // INEFFICIENT?? TEMP FIX 
+        // Determine global min/max for scaling
+        // Loop each file
+        for (int i = 0; i < files.Count; i++)
+        {
+            // Loop each variable in files
+            for (int j = 0; j < files[i].DimensionCount; j++)
+            {
+                // Get min and max values for variable and compare against current
+                // global min/max
+                if (i == 0)
+                {
+                    dimensionMin[j] = files[i].getDimensions()[j].MetaData.minValue;
+                }
+                else if (files[i].getDimensions()[j].MetaData.minValue < dimensionMin[j])
+                {
+                    dimensionMin[j] = files[i].getDimensions()[j].MetaData.minValue;
+                }
+
+                if (i == 0)
+                {
+                    dimensionMax[j] = files[i].getDimensions()[j].MetaData.maxValue;
+                }
+                else if (files[i].getDimensions()[j].MetaData.maxValue > dimensionMax[j])
+                {
+                    dimensionMax[j] = files[i].getDimensions()[j].MetaData.maxValue;
+                }
+            }
+        }
+
         // For each data file, create the trajectory within the visualisation object.
         for (int i = 0; i < files.Count; i++)
         {
+            // Rescale the values based upon global min/max
+            files[i].repopulate(dimensionMin, dimensionMax);
+
             // Create the BigMesh object for respective trajectory.
             visualisation.dataSource = files[i];
             visualisation.CreateVisualisation(AbstractVisualisation.VisualisationTypes.SCATTERPLOT);
