@@ -51,8 +51,8 @@ public class Filtering : MonoBehaviour
     enum FilterType
     {
         None,
-        LessThan,
-        LargerThan,
+        HideAbove,
+        HideBelow,
         Between
     }
     [SerializeField]
@@ -95,11 +95,11 @@ public class Filtering : MonoBehaviour
             if (filterVariable != "None")
             {
                 // Determine filter type
-                if (filterType == FilterType.LargerThan)
+                if (filterType == FilterType.HideBelow)
                 {
                     filterAbove(index, filterValue);
                 }
-                else if (filterType == FilterType.LessThan)
+                else if (filterType == FilterType.HideAbove)
                 {
                     filterBelow(index, filterValue);
                 }
@@ -145,6 +145,7 @@ public class Filtering : MonoBehaviour
         {
             for (int i = 0; i < dataObjects.Count; i++)
             {
+                Debug.Log(dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].Identifier);
                 Debug.Log(dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].MetaData.maxValue);
                 if (dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].MetaData.maxValue >= filterValue)
                 {

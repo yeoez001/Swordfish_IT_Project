@@ -475,31 +475,22 @@ namespace IATK
         {
             //for each dimensions (column) normalise all data
             float[] result = GetCol(dataArray, col);
-            //float minDimension = result.Min();
-            //float maxDimension = result.Max();
+            float minDimension = result.Min();
+            float maxDimension = result.Max();
 
-            // FIX THIS UP TO DYNAMICALLY SET THE MIN AND MAX BASED ON
-            // ALL DATA FILES. MAY NEED TO ADD MIN AND MAX INPUT VARIABLES
-            float minDimension = 0.0f;
-            float maxDimension = 1000.0f;
+            //TODO
+            // THIS IS A BIT OF A HACK WHICH SETS THE STARTING
+            // X,Y POSITIONS AT 0,0. REMOVING THIS CAUSES ISSUES WITH THE
+            // STARTING POSITION OF TRAJECTORIES.
             if (col == 1)
             {
                 minDimension = 0.0f;
-                maxDimension = 3100.0f;
             }
             else if (col == 2)
             {
                 minDimension = 0.0f;
-                maxDimension = 3500.0f;
             }
-            else if (col == 3)
-            {
-                minDimension = 1471.466f;
-                maxDimension = 5000.0f;
-            }
-            // FIX ABOVE
-
-
+            //// FIX ABOVE
 
             if (minDimension == maxDimension)
             {
@@ -552,7 +543,7 @@ namespace IATK
         public void repopulate(float[] min, float[] max)
         {
             // Populate data structure
-            for (int i = 0; i < DimensionCount; ++i)
+            for (int i = 0; i < DimensionCount; i++)
             {
                 dimensionData[i].setData(NormaliseCol(dataArray, metadata, i, min[i], max[i]), textualDimensionsList);
             }
@@ -573,26 +564,26 @@ namespace IATK
                 maxDimension += 1.0f;
             }
 
-            DataSource.DimensionData.Metadata metadata = dimensionData[col].MetaData;
+            //DataSource.DimensionData.Metadata metadata = dimensionData[col].MetaData;
 
-            metadata.minValue = minDimension;
-            metadata.maxValue = maxDimension;
-            metadata.categories = result.Distinct().Select(x => normaliseValue(x, minDimension, maxDimension, 0.0f, 1.0f)).ToArray();
-            metadata.categoryCount = metadata.categories.Count();
-            metadata.binCount = (int)(maxDimension - minDimension + 1);
+            //metadata.minValue = minDimension;
+            //metadata.maxValue = maxDimension;
+            //metadata.categories = result.Distinct().Select(x => normaliseValue(x, minDimension, maxDimension, 0.0f, 1.0f)).ToArray();
+            //metadata.categoryCount = metadata.categories.Count();
+            //metadata.binCount = (int)(maxDimension - minDimension + 1);
 
-            if (metadataPreset != null)
-            {
-                foreach (var binSizePreset in metadataPreset.BinSizePreset)
-                {
-                    if (binSizePreset.index == col)
-                    {
-                        metadata.binCount = binSizePreset.binCount;
-                    }
-                }
-            }
+            //if (metadataPreset != null)
+            //{
+            //    foreach (var binSizePreset in metadataPreset.BinSizePreset)
+            //    {
+            //        if (binSizePreset.index == col)
+            //        {
+            //            metadata.binCount = binSizePreset.binCount;
+            //        }
+            //    }
+            //}
 
-            dimensionData[col].setMetadata(metadata);
+            //dimensionData[col].setMetadata(metadata);
 
             for (int j = 0; j < result.Length; j++)
             {

@@ -57,8 +57,7 @@ public class RocketTrajectory : MonoBehaviour
             //Check if the rocket has reached the next point destination. Move destination to next point in list.
             if (Vector3.Distance(transform.localPosition, points[index]) < 0.00001f)
             {
-                index++;
-                
+                index++;            
             }
 
             if (index < points.Count)
