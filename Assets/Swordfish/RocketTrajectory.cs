@@ -36,8 +36,10 @@ public class RocketTrajectory : MonoBehaviour
         points = new List<Vector3>();
         pointsGOs = new List<GameObject>();
 
-        percentSlider = playbackPanel.GetPercentSlider();
-        dropdown = playbackPanel.GetDropdown();
+        if (percentSlider)
+            percentSlider = playbackPanel.GetPercentSlider();
+        if (dropdown)
+            dropdown = playbackPanel.GetDropdown();
     }
 
     // Update is called once per frame
@@ -123,9 +125,12 @@ public class RocketTrajectory : MonoBehaviour
         index = (int)(points.Count * pct);
 
         // Move and rotate rocket
-        transform.localPosition = points[index];
-        Vector3 startTarget = points[index + 1] - transform.localPosition;
-        transform.localRotation = Quaternion.LookRotation(startTarget);
+        if (index <= points.Count)
+        {
+            transform.localPosition = points[index];
+            Vector3 startTarget = points[index + 1] - transform.localPosition;
+            transform.localRotation = Quaternion.LookRotation(startTarget);
+        }
     }
 
     public DataPoint GetCurrentDataPoint()
@@ -154,8 +159,9 @@ public class RocketTrajectory : MonoBehaviour
         ResetAnim();
 
         pointsGOs = dataObjects.GetFiles()[selectedIndex].GetComponentInChildren<VisualisationPoints>().DataPoints();
-
-        dropdown.value = selectedIndex;
+        
+        if (dropdown)
+            dropdown.value = selectedIndex;
     }
 
     public void SetSelectedTrajectory(GameObject trajectoryObject)
