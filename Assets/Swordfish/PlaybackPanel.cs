@@ -10,7 +10,6 @@ public class PlaybackPanel : MonoBehaviour
     public RocketTrajectory rocket;
     public GameObject[] dataDisplays;
 
-    private TextMeshPro textMeshPro;
     private Dropdown dropdown;
     private DataPoint currentDataPoint;
     private Slider percentSlider;
@@ -18,7 +17,6 @@ public class PlaybackPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        textMeshPro = GetComponentInChildren<TextMeshPro>();
         dropdown = GetComponentInChildren<Dropdown>();
         percentSlider = GetComponentInChildren<Slider>();
         
