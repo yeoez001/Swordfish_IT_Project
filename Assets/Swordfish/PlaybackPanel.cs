@@ -8,6 +8,7 @@ using IATK;
 public class PlaybackPanel : MonoBehaviour
 {
     public RocketTrajectory rocket;
+    public GameObject[] dataDisplays;
 
     private TextMeshPro textMeshPro;
     private Dropdown dropdown;
@@ -46,7 +47,8 @@ public class PlaybackPanel : MonoBehaviour
     {
         currentDataPoint = rocket.GetCurrentDataPoint();
         if (currentDataPoint)
-            textMeshPro.text = currentDataPoint.GetValuesAsString();
+            foreach (GameObject display in dataDisplays)
+                display.GetComponentInChildren<TextMeshPro>().text = currentDataPoint.GetValuesAsString();
     }
 
     // Plays/resumes the rocket animation
