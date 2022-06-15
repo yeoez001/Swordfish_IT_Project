@@ -10,6 +10,9 @@ public class DataFiles : MonoBehaviour
     public GameObject dataPointPrefab;
     public float[] dimensionMin;
     public float[] dimensionMax;
+    private int maxIndexX = 0;
+    private int maxIndexY = 0;
+    private int maxIndexZ = 0;
 
     [SerializeField]
     private RocketTrajectory rocket;
@@ -46,6 +49,22 @@ public class DataFiles : MonoBehaviour
                 else if (files[i].getDimensions()[j].MetaData.maxValue > dimensionMax[j])
                 {
                     dimensionMax[j] = files[i].getDimensions()[j].MetaData.maxValue;
+
+                    // VERY inelegant solution
+                    // Finding the file indexes which have the largest x,y,z values so we
+                    // can set the axis ticks correctly
+                    if (j == 1)
+                    {
+                        maxIndexX = i;
+                    }
+                    else if (j == 2)
+                    {
+                        maxIndexY = i;
+                    }
+                    else if (j == 3)
+                    {
+                        maxIndexZ = i;
+                    }
                 }
             }
         }
@@ -91,6 +110,10 @@ public class DataFiles : MonoBehaviour
             point.GetComponent<VisualisationPoints>().createPoints();
         }
 
+        // After all trajectories have been created, create a new object to set the
+        // axis ticks correctly
+        UpdateAxisTicks();
+
         // After final view has loaded, delete it from the visualisation object
         // All the trajectory data is in the visualisationPoints and visualisationLines objects .
         visualisation.destroyView();
@@ -99,5 +122,24 @@ public class DataFiles : MonoBehaviour
     public List<CSVDataSource> GetFiles()
     {
         return files;
+    }
+
+    // Update the axis ticks 
+    private void UpdateAxisTicks()
+    {
+        // Update X axis
+        DestroyImmediate(visualisation.theVisualizationObject.X_AXIS);
+        visualisation.dataSource = files[maxIndexY];
+        visualisation.theVisualizationObject.ReplaceAxis(AbstractVisualisation.PropertyType.X);
+
+        // Update Y axis
+        DestroyImmediate(visualisation.theVisualizationObject.Y_AXIS);
+        visualisation.dataSource = files[maxIndexZ];
+        visualisation.theVisualizationObject.ReplaceAxis(AbstractVisualisation.PropertyType.Y);
+
+        // Update Z axis
+        DestroyImmediate(visualisation.theVisualizationObject.Z_AXIS);
+        visualisation.dataSource = files[maxIndexX];
+        visualisation.theVisualizationObject.ReplaceAxis(AbstractVisualisation.PropertyType.Z);
     }
 }

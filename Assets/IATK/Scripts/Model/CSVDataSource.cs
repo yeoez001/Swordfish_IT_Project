@@ -482,11 +482,7 @@ namespace IATK
             // THIS IS A BIT OF A HACK WHICH SETS THE STARTING
             // X,Y POSITIONS AT 0,0. REMOVING THIS CAUSES ISSUES WITH THE
             // STARTING POSITION OF TRAJECTORIES.
-            if (col == 1)
-            {
-                minDimension = 0.0f;
-            }
-            else if (col == 2)
+            if (col == 1 || col == 2)
             {
                 minDimension = 0.0f;
             }

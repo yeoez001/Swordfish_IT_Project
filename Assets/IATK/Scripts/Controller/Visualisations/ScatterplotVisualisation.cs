@@ -458,7 +458,7 @@ namespace IATK
                     break;
             }
         }
-        
+
         /// <summary>
         /// Gets the axies.
         /// </summary>

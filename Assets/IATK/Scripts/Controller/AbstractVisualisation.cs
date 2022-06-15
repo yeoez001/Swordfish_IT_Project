@@ -134,6 +134,35 @@ namespace IATK
         }
 
         /// <summary>
+        /// Updates an axis
+        /// </summary>
+        /// <param name="propertyType"></param>
+        /// <returns></returns>
+        public void ReplaceAxis(AbstractVisualisation.PropertyType propertyType)
+        {
+            Vector3 pos = Vector3.zero;
+            pos.y = -0.025f;
+
+            switch (propertyType)
+            {
+                case AbstractVisualisation.PropertyType.X:
+                    X_AXIS = CreateAxis(AbstractVisualisation.PropertyType.X,
+                        visualisationReference.xDimension, pos, new Vector3(0f, 0f, 0f), 0);
+                    break;
+                case AbstractVisualisation.PropertyType.Y:
+                    Y_AXIS = CreateAxis(AbstractVisualisation.PropertyType.Y,
+                        visualisationReference.yDimension, pos, new Vector3(0f, 0f, 0f), 0);
+                    break;
+                case AbstractVisualisation.PropertyType.Z:
+                    Z_AXIS = CreateAxis(AbstractVisualisation.PropertyType.Z,
+                        visualisationReference.zDimension, pos, new Vector3(0f, 0f, 0f), 0);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        /// <summary>
         /// Binds metadata to an axis component
         /// </summary>
         /// <param name="axis"></param>
