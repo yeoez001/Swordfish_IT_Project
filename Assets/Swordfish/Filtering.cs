@@ -61,6 +61,8 @@ public class Filtering : MonoBehaviour
     [SerializeField]
     private float filterValue = 0.0f;
     [SerializeField]
+    private float filterRangeMin = 0.0f;
+    [SerializeField]
     private bool doFilter = false;
 
     [SerializeField]
@@ -105,7 +107,7 @@ public class Filtering : MonoBehaviour
                 }
                 else if (filterType == FilterType.Between)
                 {
-                    //filterBetween(index, filterValue, filterMin);
+                    filterBetween(index, filterValue, filterRangeMin);
                 }
             }
             doFilter = false;
@@ -125,7 +127,6 @@ public class Filtering : MonoBehaviour
         {
             for (int i = 0; i < dataObjects.Count; i++)
             {
-                Debug.Log(dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].MetaData.maxValue);
                 if (dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].MetaData.maxValue <= filterValue)
                 {
                     files.transform.GetChild(i).gameObject.SetActive(false);
@@ -145,8 +146,6 @@ public class Filtering : MonoBehaviour
         {
             for (int i = 0; i < dataObjects.Count; i++)
             {
-                Debug.Log(dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].Identifier);
-                Debug.Log(dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].MetaData.maxValue);
                 if (dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].MetaData.maxValue >= filterValue)
                 {
                     files.transform.GetChild(i).gameObject.SetActive(false);
@@ -159,23 +158,24 @@ public class Filtering : MonoBehaviour
         }
     }
 
-    // Hide all values ABOVE a provided filterValue
+    // Hide all values outside of a provided range.
     public void filterBetween(int index, float maxValue, float minValue)
     {
-        //try
-        //{
-        //    for (int i = 0; i < dataObjects.Count; i++)
-        //    {
-        //        if (dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].MetaData.maxValue >= filterValue)
-        //        {
-        //            files.transform.GetChild(i).gameObject.SetActive(false);
-        //        }
-        //    }
-        //}
-        //catch (Exception e)
-        //{
-        //    Debug.Log(e);
-        //}
+        try
+        {
+            for (int i = 0; i < dataObjects.Count; i++)
+            {
+                if (dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].MetaData.maxValue >= maxValue ||
+                    dataObjects[i].GetComponent<CSVDataSource>().getDimensions()[index].MetaData.maxValue <= minValue)
+                {
+                    files.transform.GetChild(i).gameObject.SetActive(false);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
     }
 
     // Remove all filters
