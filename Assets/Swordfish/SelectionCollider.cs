@@ -6,41 +6,51 @@ using IATK;
 
 public class SelectionCollider : MonoBehaviour
 {
-    public BooleanAction selectionAction;
-    public BooleanAction trajectorySelectionAction;
+    // Controller action to select a data point to show its data display
+    public BooleanAction dataPointSelectionAction;
+    // Controller action to select a data point to set the trajectory as the animation source
+    public BooleanAction trajectoryAnimationSelectionAction;
 
+    // dataPointSelectionAction is not being pressed
     private bool released = true;
 
     private void OnTriggerStay(Collider other)
     {
         // Activated selectionAction after having released it previously
-        if (released && selectionAction.IsActivated)
+        if (released && dataPointSelectionAction.IsActivated)
         {
             released = false;
+
+            // Selected object is a DataPoint
             DataPoint point = other.gameObject.GetComponent<DataPoint>();
             if (point)
             {
+                // Select DataPoint (i.e. show its data display)
                 point.Select();
             }
         }
 
-        // Released the selection action
-        if (selectionAction.IsActivated == false)
+        // Released the DataPoint selection action
+        if (dataPointSelectionAction.IsActivated == false)
         {
             released = true;
         }
 
-        if (trajectorySelectionAction.IsActivated)
+        // Activated the trajectory selection action
+        if (trajectoryAnimationSelectionAction.IsActivated)
         {
+            // Selected object is a DataPoint
             DataPoint point = other.gameObject.GetComponent<DataPoint>();
             if (point)
             {
                 // Get the rocket from the visualisation that the selected data point belongs to
                 Visualisation visualisation = point.GetComponentInParent(typeof(Visualisation)) as Visualisation;
-                RocketTrajectory rocket = visualisation.GetComponentInChildren<RocketTrajectory>();
+                RocketAnimation rocket = visualisation.GetComponentInChildren<RocketAnimation>();
+                // Visualisation has a rocket
                 if (rocket)
                 {
-                    rocket.SetSelectedTrajectory(point.gameObject);
+                    // Set the rocket to animate over the trajectory of the selected data point
+                    rocket.setSelectedTrajectory(point.gameObject);
                 }
             }
         }

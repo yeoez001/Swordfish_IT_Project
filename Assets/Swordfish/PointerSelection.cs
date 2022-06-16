@@ -21,10 +21,10 @@ public class PointerSelection : MonoBehaviour
                 {
                     // Get the rocket from the visualisation that the selected data point belongs to
                     Visualisation visualisation = dataPoint.GetComponentInParent(typeof(Visualisation)) as Visualisation;
-                    RocketTrajectory rocket = visualisation.GetComponentInChildren<RocketTrajectory>();
+                    RocketAnimation rocket = visualisation.GetComponentInChildren<RocketAnimation>();
                     if (rocket)
                     {
-                        rocket.SetSelectedTrajectory(dataPoint.gameObject);
+                        rocket.setSelectedTrajectory(dataPoint.gameObject);
                     }
                 }
             }

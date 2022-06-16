@@ -4,40 +4,42 @@ using UnityEngine;
 using UnityEngine.UI;
 using IATK;
 
-public class RocketTrajectory : MonoBehaviour
+public class RocketAnimation : MonoBehaviour
 {
+    // DataFiles of the associated visualisation
     public DataFiles dataObjects;
-    private LineRenderer lineRenderer;
-    private List<Vector3> points;
-    private List<GameObject> pointsGOs;
 
+    // Lines of all trajectories within the visualisation
     public List<LineRenderer> lineList;
+    private LineRenderer lineRenderer;
 
-    public float speed = 1.0f;
-    int index = 1;
-    public bool playing = true;
-    private bool load = false;
+    // Points of the current selected trajectory
+    private List<Vector3> points;
+    // Current index the rocket is at within the points variable
+    private int index = 1;
+    private List<GameObject> pointsGOs;   
 
+    // Animation settings
+    private float speed = 1.0f;     
+    private bool playing = false;
+
+    // Position of the rocket in terms of the entire trajectory as a percentage
     [Range(0, 1)]
-    public float percent = 0;   
+    private float percent = 0;   
     private float pctChange = 0;
 
-    // UI Components
-    public PlaybackPanel playbackPanel;
-    private Slider percentSlider;
-    private Dropdown dropdown;
+    // UI Component manager
+    private RocketAnimationUI animationUI;
 
-    // Start is called before the first frame update
+    private bool load = false;
+
     void Start()
     {
         // Offset the initial local rotation of object
-        transform.localRotation = Quaternion.Euler(-90, 0, 0);
-
+        transform.localRotation = Quaternion.Euler(-90, 0, 0);        
         points = new List<Vector3>();
         pointsGOs = new List<GameObject>();
-
-        percentSlider = playbackPanel.GetPercentSlider();   
-        dropdown = playbackPanel.GetDropdown();
+        animationUI = GetComponent<RocketAnimationUI>();
     }
 
     // Update is called once per frame
@@ -47,17 +49,17 @@ public class RocketTrajectory : MonoBehaviour
         if (load == false)
         {
             // Set the selected trajectory to the first data source
-            SetSelectedTrajectory(0);
+            setSelectedTrajectory(0);
             load = true;
         }
 
         // If the rocket hasn't reached final data point, keep moving along trajectory.
-        if (index < points.Count && playing == true)                                     //  TAKE AWAY THE COMMENT FOR BUTTONS TO WORK
+        if (index < points.Count && playing == true)                                   
         {
             float change = ((float)index / (float)points.Count);
-            if (percentSlider && change > 0)
+            if (animationUI.getPercentSlider() && change > 0)
             {
-                percentSlider.value = change;
+                animationUI.getPercentSlider().value = change;
             }
 
             //Check if the rocket has reached the next point destination. Move destination to next point in list.
@@ -87,14 +89,14 @@ public class RocketTrajectory : MonoBehaviour
         else if (pctChange != percent)
         {
             playing = false;
-            Slider(percent);
+            sliderChanged(percent);
             pctChange = percent;
         }
 
     }
 
     // Reset the rocket animation back to the beginning data point
-    public void ResetAnim()
+    public void resetAnimation()
     {
         // Only stop animation if rocket is at the end of the trajectory.  Else, keep it as it was previously. 
         if (index >= points.Count)
@@ -109,14 +111,15 @@ public class RocketTrajectory : MonoBehaviour
         Vector3 startTarget = points[index] - transform.localPosition;
         transform.localRotation = Quaternion.LookRotation(startTarget);
 
-        if (percentSlider)
+        // Slider is not null
+        if (animationUI.getPercentSlider())
         {
-            percentSlider.value = 0;
+            animationUI.getPercentSlider().value = 0;
         }
     }
 
     // When the user moves along the slider, move the rocket accordingly.
-    public void Slider(float pct)
+    public void sliderChanged(float pct)
     {
         // Calculate the point closest to percentage
         // Change index to correct value relative to slider percentage
@@ -129,7 +132,7 @@ public class RocketTrajectory : MonoBehaviour
             index = points.Count - 1;
         }
         // Else move and rotate rocket to face the next point
-        else if (index < points.Count - 2)
+        else if (index < points.Count - 1)
         {
             transform.localPosition = points[index];
             Vector3 startTarget = points[index + 1] - transform.localPosition;
@@ -137,22 +140,21 @@ public class RocketTrajectory : MonoBehaviour
         }
     }
 
-    public DataPoint GetCurrentDataPoint()
-    {
-        
+    // Get the current DataPoint object that the trajectory is at
+    public DataPoint getCurrentDataPoint()
+    {        
         if (index < pointsGOs.Count)
         {
             return pointsGOs[index].GetComponent<DataPoint>();
         }
-        //Debug.Log("index :" + index + " pointsGOs count: " + pointsGOs.Count);
         return null;
     }
 
-    public void SetSelectedTrajectory(int selectedIndex)
+    // Set the trajectory that the rocket is animated across based on its index of data source in the editor
+    public void setSelectedTrajectory(int selectedIndex)
     {
         // Get the positions from the lineRenderer.
         points.Clear();
-
         // Set the rocket to the first trajectory.
         lineRenderer = lineList[selectedIndex];
         Vector3[] pos = new Vector3[lineRenderer.positionCount];
@@ -160,24 +162,32 @@ public class RocketTrajectory : MonoBehaviour
 
         // Set the rocket's starting position and rotation
         points.AddRange(pos);
-        ResetAnim();
+        resetAnimation();
 
         pointsGOs = dataObjects.GetFiles()[selectedIndex].GetComponentInChildren<VisualisationPoints>().DataPoints();
         
-        if (dropdown)
-            dropdown.value = selectedIndex;
+        // Trajectory source dropdown is not null
+        if (animationUI.getDropdown())
+            animationUI.getDropdown().value = selectedIndex;
     }
 
-    public void SetSelectedTrajectory(GameObject trajectoryObject)
+    // Set the trajectory that the rocket is animated across based on the user selecting a trajectory's data point
+    public void setSelectedTrajectory(GameObject trajectoryObject)
     {
         // Get the data source that the trajectoryObject derives from. trajectoryObject is either the line or data point
         // and thus, would be child of the data source.
         CSVDataSource dataSource = trajectoryObject.GetComponentInParent(typeof(CSVDataSource)) as CSVDataSource;
 
-        if (dataSource)
+        if (dataSource && dataObjects)
         {
             int dataSourceIndex = dataObjects.GetFiles().IndexOf(dataSource);
-            SetSelectedTrajectory(dataSourceIndex);
+            setSelectedTrajectory(dataSourceIndex);
         }
+    }
+
+    // Set whether the animation is playing 
+    public void setPlaying(bool play)
+    {
+        playing = play;
     }
 }

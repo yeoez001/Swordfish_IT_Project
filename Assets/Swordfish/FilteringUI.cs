@@ -6,11 +6,15 @@ using IATK;
 
 public class FilteringUI : MonoBehaviour
 {
-    // UI Components
+    // UI Dropdown for selecting the filter variable
     public Dropdown filterVarDropdown;
+    // UI Dropdown for selecting the filter type
     public Dropdown filterTypeDropdown;
+    // UI InputField for entering the filter value when only 1 is needed
     public InputField singleFilterInputField;
+    // UI InputField for entering the minimum filter value for the 'Between'/ range filter
     public InputField minFilterInputField;
+    // UI InputField for entering the maximum filter value for the 'Between'/ range filter
     public InputField maxFilterInputField;
 
     private bool loaded;

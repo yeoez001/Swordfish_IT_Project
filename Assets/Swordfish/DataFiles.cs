@@ -15,7 +15,7 @@ public class DataFiles : MonoBehaviour
     private int maxIndexZ = 0;
 
     [SerializeField]
-    private RocketTrajectory rocket;
+    private RocketAnimation rocket;
 
     private void Start()
     {
@@ -100,8 +100,6 @@ public class DataFiles : MonoBehaviour
             line.GetComponent<LineRenderer>().BakeMesh(newMesh, true);
             meshCollider.sharedMesh = newMesh;
             lineMesh.transform.SetParent(files[i].transform, false);
-            //meshCollider.convex = true;
-            //meshCollider.isTrigger = true;
 
             line.SetActive(true);
 
