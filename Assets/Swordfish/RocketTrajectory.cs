@@ -36,10 +36,8 @@ public class RocketTrajectory : MonoBehaviour
         points = new List<Vector3>();
         pointsGOs = new List<GameObject>();
 
-        if (percentSlider)
-            percentSlider = playbackPanel.GetPercentSlider();
-        if (dropdown)
-            dropdown = playbackPanel.GetDropdown();
+        percentSlider = playbackPanel.GetPercentSlider();   
+        dropdown = playbackPanel.GetDropdown();
     }
 
     // Update is called once per frame
@@ -121,11 +119,17 @@ public class RocketTrajectory : MonoBehaviour
     public void Slider(float pct)
     {
         // Calculate the point closest to percentage
-        // Change index to correct value
+        // Change index to correct value relative to slider percentage
         index = (int)(points.Count * pct);
-
-        // Move and rotate rocket
-        if (index <= points.Count)
+        // Slider percentage is 1
+        if (pct == 1)
+        {
+            // Move rocket to the last trajectory point
+            transform.localPosition = points[points.Count - 1];
+            index = points.Count - 1;
+        }
+        // Else move and rotate rocket to face the next point
+        else if (index < points.Count - 2)
         {
             transform.localPosition = points[index];
             Vector3 startTarget = points[index + 1] - transform.localPosition;

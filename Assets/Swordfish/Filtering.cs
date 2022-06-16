@@ -51,11 +51,11 @@ public class Filtering : MonoBehaviour
     public string filterVariable;
 
     // UI Components
-    public Dropdown filterVarDropdown;
-    public Dropdown filterTypeDropdown;
-    public KeypadInput filterUIValue;
+    //public Dropdown filterVarDropdown;
+  //  public Dropdown filterTypeDropdown;
+   // public Keypad filterUIValue;
 
-    enum FilterType
+    public enum FilterType
     {
         None,
         HideAbove,
@@ -65,8 +65,8 @@ public class Filtering : MonoBehaviour
     [SerializeField]
     private FilterType filterType = new FilterType();
 
-    [SerializeField]
-    private float filterValue = 0.0f;
+   //[SerializeField]
+   // private List<float> filterValues;
     [SerializeField]
     private float filterRangeMin = 0.0f;
     [SerializeField]
@@ -84,6 +84,7 @@ public class Filtering : MonoBehaviour
         // Load the data sources
         if (loaded == false)
         {
+
             int children = files.transform.childCount;
             for (int i = 0; i < children; i++)
             {
@@ -95,20 +96,6 @@ public class Filtering : MonoBehaviour
             {
                 dataNames.Add(dataObjects[0].GetComponent<CSVDataSource>().getDimensions()[i].Identifier);
             }
-
-            // Load option to UI dropdowns if not null
-            if (filterVarDropdown && filterTypeDropdown)
-            {
-                // Add data names to UI dropdown options
-                filterVarDropdown.AddOptions(dataNames);
-
-                // Add filter types to UI dropdown options
-                List<string> filterTypesStrings = new List<string>();
-                filterTypesStrings.Add(FilterType.None.ToString());
-                filterTypesStrings.Add(FilterType.HideBelow.ToString());
-                filterTypesStrings.Add(FilterType.HideAbove.ToString());
-                filterTypeDropdown.AddOptions(filterTypesStrings);
-            }
             loaded = true;
         }
 
@@ -117,34 +104,34 @@ public class Filtering : MonoBehaviour
         //    int index = dataNames.IndexOf(filterVariable)-1;
 
 
-            if (filterVariable != "None")
-            {
-                // Determine filter type
-                if (filterType == FilterType.HideBelow)
-                {
-                    filterAbove(index, filterValue);
-                }
-                else if (filterType == FilterType.HideAbove)
-                {
-                    filterBelow(index, filterValue);
-                }
-                else if (filterType == FilterType.Between)
-                {
-                    filterBetween(index, filterValue, filterRangeMin);
-                }
-            }
-            doFilter = false;
-            currentFilter = filterVariable;
-        }
-        else if (filterVariable == "None" && filterVariable != currentFilter)
-        {
-            resetFilters();
-            currentFilter = filterVariable;
-        }
+        //    if (filterVariable != "None")
+        //    {
+        //        // Determine filter type
+        //        if (filterType == FilterType.HideBelow)
+        //        {
+        //            filterAbove(index, filterValue);
+        //        }
+        //        else if (filterType == FilterType.HideAbove)
+        //        {
+        //            filterBelow(index, filterValue);
+        //        }
+        //        else if (filterType == FilterType.Between)
+        //        {
+        //            filterBetween(index, filterValue, filterRangeMin);
+        //        }
+        //    }
+        //    doFilter = false;
+        //    currentFilter = filterVariable;
+        //}
+        //else if (filterVariable == "None" && filterVariable != currentFilter)
+        //{
+        //    resetFilters();
+        //    currentFilter = filterVariable;
+        //}
     }
 
     // Hide all values BELOW a provided filterValue
-    public void filterAbove(int index, float filterValue) 
+    public void FilterAbove(int index, float filterValue) 
     {
         try
         {
@@ -163,7 +150,7 @@ public class Filtering : MonoBehaviour
     }
 
     // Hide all values ABOVE a provided filterValue
-    public void filterBelow(int index, float filterValue)
+    public void FilterBelow(int index, float filterValue)
     {
         try
         {
@@ -182,7 +169,7 @@ public class Filtering : MonoBehaviour
     }
 
     // Hide all values outside of a provided range.
-    public void filterBetween(int index, float maxValue, float minValue)
+    public void FilterBetween(int index, float maxValue, float minValue)
     {
         try
         {
@@ -202,7 +189,7 @@ public class Filtering : MonoBehaviour
     }
 
     // Remove all filters
-    public void resetFilters()
+    public void ResetFilters()
     {
         foreach(GameObject trajectory in dataObjects)
         {
@@ -210,37 +197,37 @@ public class Filtering : MonoBehaviour
         }
     }
 
-    // Called by UI Run button
-    public void RunFilter()
+    // Run the filter
+    public void RunFilter(List<float> filterValues)
     {
         int index = dataNames.IndexOf(filterVariable) - 1;
 
         // Determine filter type
         if (filterType == FilterType.HideBelow)
         {
-            filterAbove(index, filterUIValue.GetValue());
+            FilterAbove(index, filterValues[0]);
         }
         else if (filterType == FilterType.HideAbove)
         {
-            filterBelow(index, filterUIValue.GetValue());
+            FilterBelow(index, filterValues[0]);
         }
         else if (filterType == FilterType.Between)
         {
-            //filterBetween(index, filterValue, filterMin);
+            FilterBetween(index, filterValues[1], filterValues[0]);
         }
         else if (filterType == FilterType.None)
         {
-            resetFilters();
+            ResetFilters();
         }
         
         currentFilter = filterVariable;
     }
 
-    // Called by UI Dropdown
-    public void SetFilterType()
+    // Set the filter type to run
+    public void SetFilterType(int filterTypeIndex)
     {        
         // Check which filter type was selected in the dropdwon
-        switch (filterTypeDropdown.value)
+        switch (filterTypeIndex)
         {
             // Based on the order the Enums were added to the dropdown options
             case 0:
@@ -252,13 +239,24 @@ public class Filtering : MonoBehaviour
             case 2:
                 filterType = FilterType.HideAbove;
                 break;
+            case 3:
+                filterType = FilterType.Between;
+                break;
         }
     }
 
-    // Called by UI Dropdown
-    public void SetFilterVariable()
-    {       
-        // Set the filter variable based on the text of the selected UI dropdown option
-        filterVariable = filterVarDropdown.options[filterVarDropdown.value].text;
+    public void SetFilterVariable(string filterString)
+    {
+        filterVariable = filterString;
+    }
+
+    public List<string> GetDataNames()
+    {
+        return dataNames;
+    }
+
+    public List<GameObject> GetDataObjects()
+    {
+        return dataObjects;
     }
 }

@@ -367,7 +367,10 @@ namespace IATK
             if (File.Exists(ConfigurationFileName()))
             {
                 if (theVisualizationObject.creationConfiguration == null) theVisualizationObject.creationConfiguration = new CreationConfiguration();
-                if (!dataSource.IsLoaded) dataSource.load();
+                if (dataSource)
+                {
+                    if (!dataSource.IsLoaded) dataSource.load();
+                }                
 
                 theVisualizationObject.creationConfiguration.Deserialize(ConfigurationFileName());
                 theVisualizationObject.creationConfiguration.disableWriting = true;
