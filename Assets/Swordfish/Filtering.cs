@@ -101,7 +101,7 @@ public class Filtering : MonoBehaviour
 
         // Do filter logic              UNCOMMENT TO WORK IN EDITOR. UI WILL THEN NOT WORK.
         //if (doFilter == true) {
-        //    int index = dataNames.IndexOf(filterVariable)-1;
+        ////    int index = dataNames.IndexOf(filterVariable)-1;
 
 
         //    if (filterVariable != "None")
