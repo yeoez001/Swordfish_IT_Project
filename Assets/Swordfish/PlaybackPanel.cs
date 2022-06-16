@@ -51,28 +51,23 @@ public class PlaybackPanel : MonoBehaviour
 
     // Plays/resumes the rocket animation
     [SerializeField]
-    public void playAnimation()
+    public void PlayAnimation()
     {
         rocket.playing = true;
     }
 
     // Pause the rocket animation
     [SerializeField]
-    public void pauseAnimation()
+    public void PauseAnimation()
     {
         rocket.playing = false;
     }
 
     // Reset the animation to the beginning
     [SerializeField]
-    public void resetAnimation()
+    public void ResetAnimation()
     {
         rocket.ResetAnim();
-    }
-
-    public void test()
-    {
-        Debug.Log("prsesed");
     }
 
     // Update the trajectory that the rocket is on based on the dropdown value
@@ -83,6 +78,7 @@ public class PlaybackPanel : MonoBehaviour
 
     public Slider GetPercentSlider()
     {
+        Debug.Log(percentSlider);
         return percentSlider;
     }
 
