@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using IATK;
+using System.IO;
 
 public class DataFiles : MonoBehaviour
 {
-    public List<CSVDataSource> files;
+    //public List<CSVDataSource> files;
     public Visualisation visualisation;
     public GameObject dataPointPrefab;
     public float[] dimensionMin;
@@ -14,11 +15,19 @@ public class DataFiles : MonoBehaviour
     private int maxIndexY = 0;
     private int maxIndexZ = 0;
 
+    private string path = "/Resources/rocketData";
+    private string nameStructure = "trajectory-";
+    private List<CSVDataSource> files;
+
     [SerializeField]
     private RocketTrajectory rocket;
 
     private void Start()
     {
+        // First find files and create csvDataSource objects
+        files = new List<CSVDataSource>();
+        createObjects();
+
         dimensionMin = new float[files[0].DimensionCount];
         dimensionMax = new float[files[0].DimensionCount];
 
@@ -127,6 +136,36 @@ public class DataFiles : MonoBehaviour
         // After final view has loaded, delete it from the visualisation object
         // All the trajectory data is in the visualisationPoints and visualisationLines objects .
         visualisation.destroyView();
+    }
+
+    // For each csv file in the directory, create a csvDataSourceObject
+    private void createObjects()
+    {
+        string[] filePaths = Directory.GetFiles(Application.dataPath + path, "*.csv");
+        for (int i = 0; i < filePaths.Length; i++)
+        {
+            // Create new game object with CSVDataSource component
+            GameObject dataSourceObj = new GameObject("DataSource" + (i + 1));
+            dataSourceObj.transform.SetParent(this.transform);
+            dataSourceObj.transform.localPosition = Vector3.zero;
+            dataSourceObj.AddComponent<CSVDataSource>();
+
+            // Set CSVDataSource data to file data.
+            TextAsset data = textfromFile(path + "/" + nameStructure + (i + 1) + ".csv");
+            dataSourceObj.GetComponent<CSVDataSource>().data = data;
+            dataSourceObj.GetComponent<CSVDataSource>().loadHeader();
+            dataSourceObj.GetComponent<CSVDataSource>().load();
+            files.Add(dataSourceObj.GetComponent<CSVDataSource>());
+        }
+    }
+
+    // Creates TextAsset object from a filepath
+    private TextAsset textfromFile(string path)
+    {
+        var sr = new StreamReader(Application.dataPath + path);
+        string contents = sr.ReadToEnd();
+        sr.Close();
+        return new TextAsset(contents);
     }
 
     public List<CSVDataSource> GetFiles()

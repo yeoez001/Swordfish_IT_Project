@@ -114,33 +114,33 @@ public class Filtering : MonoBehaviour
 
         // Do filter logic              UNCOMMENT TO WORK IN EDITOR. UI WILL THEN NOT WORK.
         //if (doFilter == true) {
-        //    int index = dataNames.IndexOf(filterVariable)-1;
+        ////    int index = dataNames.IndexOf(filterVariable)-1;
 
 
-            if (filterVariable != "None")
-            {
-                // Determine filter type
-                if (filterType == FilterType.HideBelow)
-                {
-                    filterAbove(index, filterValue);
-                }
-                else if (filterType == FilterType.HideAbove)
-                {
-                    filterBelow(index, filterValue);
-                }
-                else if (filterType == FilterType.Between)
-                {
-                    filterBetween(index, filterValue, filterRangeMin);
-                }
-            }
-            doFilter = false;
-            currentFilter = filterVariable;
-        }
-        else if (filterVariable == "None" && filterVariable != currentFilter)
-        {
-            resetFilters();
-            currentFilter = filterVariable;
-        }
+        //    if (filterVariable != "None")
+        //    {
+        //        // Determine filter type
+        //        if (filterType == FilterType.HideBelow)
+        //        {
+        //            filterAbove(index, filterValue);
+        //        }
+        //        else if (filterType == FilterType.HideAbove)
+        //        {
+        //            filterBelow(index, filterValue);
+        //        }
+        //        else if (filterType == FilterType.Between)
+        //        {
+        //            filterBetween(index, filterValue, filterRangeMin);
+        //        }
+        //    }
+        //    doFilter = false;
+        //    currentFilter = filterVariable;
+        //}
+        //else if (filterVariable == "None" && filterVariable != currentFilter)
+        //{
+        //    resetFilters();
+        //    currentFilter = filterVariable;
+        //}
     }
 
     // Hide all values BELOW a provided filterValue
