@@ -8,15 +8,17 @@ using IATK;
 public class PlaybackPanel : MonoBehaviour
 {
     public RocketTrajectory rocket;
+    public GameObject[] dataDisplays;
 
-    private TextMeshPro textMeshPro;
     private Dropdown dropdown;
+    private DataPoint currentDataPoint;
+    private Slider percentSlider;
 
     // Start is called before the first frame update
     void Start()
     {
-        textMeshPro = GetComponentInChildren<TextMeshPro>();
         dropdown = GetComponentInChildren<Dropdown>();
+        percentSlider = GetComponentInChildren<Slider>();
         
         // Setup dropdown UI with list of data source associated with the visualisation that the rocket is from
         if (dropdown)
@@ -41,7 +43,10 @@ public class PlaybackPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textMeshPro.text = rocket.GetCurrentDataPoint().GetValuesAsString();
+        currentDataPoint = rocket.GetCurrentDataPoint();
+        if (currentDataPoint)
+            foreach (GameObject display in dataDisplays)
+                display.GetComponentInChildren<TextMeshPro>().text = currentDataPoint.GetValuesAsString();
     }
 
     // Plays/resumes the rocket animation
@@ -71,9 +76,18 @@ public class PlaybackPanel : MonoBehaviour
     }
 
     // Update the trajectory that the rocket is on based on the dropdown value
-    public void updateSelectedTrajectory()
+    public void UpdateSelectedTrajectory()
     {
         rocket.SetSelectedTrajectory(dropdown.value);
     }
 
+    public Slider GetPercentSlider()
+    {
+        return percentSlider;
+    }
+
+    public Dropdown GetDropdown()
+    {
+        return dropdown;
+    }
 }

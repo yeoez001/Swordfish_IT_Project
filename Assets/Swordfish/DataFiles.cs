@@ -93,6 +93,16 @@ public class DataFiles : MonoBehaviour
             line.GetComponent<VisualisationLine>().visualisationMesh = mesh;
             line.GetComponent<VisualisationLine>().lineMat = mat;
             line.transform.SetParent(files[i].transform, false);
+
+            GameObject lineMesh = new GameObject();
+            MeshCollider meshCollider = lineMesh.AddComponent<MeshCollider>();
+            Mesh newMesh = new Mesh();
+            line.GetComponent<LineRenderer>().BakeMesh(newMesh, true);
+            meshCollider.sharedMesh = newMesh;
+            lineMesh.transform.SetParent(files[i].transform, false);
+            //meshCollider.convex = true;
+            //meshCollider.isTrigger = true;
+
             line.SetActive(true);
 
             // Add the LineRenderer to the list in rocketTrajectory
