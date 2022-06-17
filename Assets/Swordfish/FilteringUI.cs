@@ -16,6 +16,8 @@ public class FilteringUI : MonoBehaviour
     public InputField minFilterInputField;
     // UI InputField for entering the maximum filter value for the 'Between'/ range filter
     public InputField maxFilterInputField;
+    // UI Keypad for inputting values for the filter
+    public Keypad keypad;
 
     private bool loaded;
     private Filtering filtering;
@@ -77,6 +79,9 @@ public class FilteringUI : MonoBehaviour
             singleFilterInputField.gameObject.SetActive(false);
             minFilterInputField.gameObject.SetActive(true);
             maxFilterInputField.gameObject.SetActive(true);
+
+            // Set auto-focus to the minimum input field
+            keypad.setFocus(minFilterInputField);
         } 
         // Filtering type is None
         else if (filterTypeDropdown.value == 0) 
@@ -90,6 +95,9 @@ public class FilteringUI : MonoBehaviour
             singleFilterInputField.gameObject.SetActive(true);
             minFilterInputField.gameObject.SetActive(false);
             maxFilterInputField.gameObject.SetActive(false);
+
+            // Set auto-focus to the active input field
+            keypad.setFocus(singleFilterInputField);
         }
     }
 
