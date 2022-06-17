@@ -144,8 +144,8 @@ public class DataFiles : MonoBehaviour
         {
             // Create new game object with CSVDataSource component
             GameObject dataSourceObj = new GameObject("DataSource" + (i + 1));
-            dataSourceObj.transform.SetParent(this.transform);
-            dataSourceObj.transform.localPosition = Vector3.zero;
+            dataSourceObj.transform.SetParent(this.transform, false);
+            
             dataSourceObj.AddComponent<CSVDataSource>();
 
             // Set CSVDataSource data to file data.
