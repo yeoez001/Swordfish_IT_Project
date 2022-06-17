@@ -3,33 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// UI Keypad 
+// Functions called by UI component
 public class Keypad : MonoBehaviour
 {
-    private InputField focusedInputField;
+    private InputField lastFocusedInputField;
 
-    void Start()
+    // Add button value to the input field
+    public void appendValue(string buttonNum)
     {
-        focusedInputField = GetComponent<InputField>();
+        lastFocusedInputField.text += buttonNum;
     }
 
-    public void AppendValue(string buttonNum)
+    // Backspace input field
+    public void backspace()
     {
-        focusedInputField.text += buttonNum;
+        lastFocusedInputField.text = lastFocusedInputField.text.Substring(0, lastFocusedInputField.text.Length - 1);
     }
 
-    public void Backspace()
+    // Get value from the input field as a float
+    public float getValue()
     {
-        focusedInputField.text = focusedInputField.text.Substring(0, focusedInputField.text.Length - 1);
+        return float.Parse(lastFocusedInputField.text);
     }
 
-    public float GetValue()
+    // Set the last focused input field
+    public void setFocus(InputField inputField)
     {
-        return float.Parse(focusedInputField.text);
-    }
-
-    public void SetFocus(InputField inputField)
-    {
-        focusedInputField = inputField;
+        lastFocusedInputField = inputField;
     }
 
 }

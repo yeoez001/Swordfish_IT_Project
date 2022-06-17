@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Shows Console messages as Text component of GameObject
+// Used for Debugging purposes whilst in VR environment
 public class ConsoleDebugDisplay : MonoBehaviour
 {
     Dictionary<string, string> debugLogs = new Dictionary<string, string>();
@@ -12,6 +14,7 @@ public class ConsoleDebugDisplay : MonoBehaviour
 
     private void OnEnable()
     {
+        // On log messsage received event, execute HandleLog
         Application.logMessageReceived += HandleLog;
     }
 
@@ -26,25 +29,7 @@ public class ConsoleDebugDisplay : MonoBehaviour
         {
             string[] splitString = logString.Split(char.Parse(":"));
             display.text += "\n" + splitString[0];
-            //string debugKey = splitString[0];
-            //string debugValue = splitString.Length > 1 ? splitString[1] : "";
-
-            //if (debugLogs.ContainsKey(debugKey))
-            //    debugLogs[debugKey] = debugLogs[debugKey] + debugValue;
-            //else
-            //    debugLogs.Add(debugKey, debugValue);
 
         }
-
-        //string displayText = "";
-        //foreach (KeyValuePair<string, string> log in debugLogs)
-        //{
-        //    if (log.Value == "")
-        //        displayText += log.Key + "\n";
-        //    else
-        //        displayText += log.Key + ": " + log.Value + "\n";
-        //}
-
-        //display.text = displayText;
     }
 }

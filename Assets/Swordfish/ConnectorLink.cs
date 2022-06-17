@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Creates a line renderer between two GameObject points
+[RequireComponent(typeof(LineRenderer))]
 public class ConnectorLink : MonoBehaviour
 {
     public GameObject pointA;
@@ -11,8 +13,7 @@ public class ConnectorLink : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        line = GetComponent<LineRenderer>();
-        
+        line = GetComponent<LineRenderer>();        
     }
 
     // Update is called once per frame

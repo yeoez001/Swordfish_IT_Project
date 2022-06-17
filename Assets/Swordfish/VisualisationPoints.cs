@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using IATK;
 
+// Creates the points of a visualisation as separate GameObjects based on the IATK combined mesh
 public class VisualisationPoints : MonoBehaviour
 {
-    public GameObject dataPointPrefab;
+    // Prefab of object to instantiate the data point as
+    private GameObject dataPointPrefab;
+
     private Vector3[] vertices;
     private List<GameObject> dataPoints;
-    public BigMesh visualisationMesh;
-    public Material pointMat;
+    private BigMesh visualisationMesh;
+    private Material pointMat;
 
     // Creates a GameObject dataPointPrefab consisted of individual objects representing
     // each data point from a CSV file.
@@ -37,5 +40,20 @@ public class VisualisationPoints : MonoBehaviour
     public List<GameObject> DataPoints()
     {
         return dataPoints;
+    }
+
+    public void setDataPointPrefab(GameObject prefab)
+    {
+        dataPointPrefab = prefab;
+    }
+
+    public void setVisualisationMesh(BigMesh mesh)
+    {
+        visualisationMesh = mesh;
+    }
+
+    public void setPointMaterial(Material mat)
+    {
+        pointMat = mat;
     }
 }
