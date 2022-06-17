@@ -6,11 +6,10 @@ using System.IO;
 
 public class DataFiles : MonoBehaviour
 {
-    //public List<CSVDataSource> files;
-    public Visualisation visualisation;
-    public GameObject dataPointPrefab;
-    public float[] dimensionMin;
-    public float[] dimensionMax;
+    public Visualisation visualisation;  // IATK visualisation object
+    public GameObject dataPointPrefab;   // Prefab for trajectory data points
+    private float[] dimensionMin;
+    private float[] dimensionMax;
     private int maxIndexX = 0;
     private int maxIndexY = 0;
     private int maxIndexZ = 0;
@@ -26,7 +25,7 @@ public class DataFiles : MonoBehaviour
     {
         // First find files and create csvDataSource objects
         files = new List<CSVDataSource>();
-        createObjects();
+        createCSVDataSource();
 
         dimensionMin = new float[files[0].DimensionCount];
         dimensionMax = new float[files[0].DimensionCount];
@@ -84,47 +83,8 @@ public class DataFiles : MonoBehaviour
             // Rescale the values based upon global min/max
             files[i].repopulate(dimensionMin, dimensionMax);
 
-            // Create the BigMesh object for respective trajectory.
-            visualisation.dataSource = files[i];
-            visualisation.CreateVisualisation(AbstractVisualisation.VisualisationTypes.SCATTERPLOT);
-            BigMesh mesh = visualisation.theVisualizationObject.viewList[0].BigMesh;
-
-            // Create a randomly coloured material to use for the VisualisationLine and VisualisationPoints objects
-            var rand = new System.Random();
-            Material mat = new Material(Shader.Find("Standard"));
-            Color color = new Color((float)rand.NextDouble(), (float)rand.NextDouble(), (float)rand.NextDouble(), 1);
-            mat.color = color;
-
-            // Create the VisualisationLine object for this trajectory
-            GameObject line = new GameObject();
-            line.SetActive(false);
-            line.AddComponent<VisualisationLine>();
-            line.GetComponent<VisualisationLine>().visualisationMesh = mesh;
-            line.GetComponent<VisualisationLine>().lineMat = mat;
-            line.transform.SetParent(files[i].transform, false);
-
-            GameObject lineMesh = new GameObject();
-            MeshCollider meshCollider = lineMesh.AddComponent<MeshCollider>();
-            Mesh newMesh = new Mesh();
-            line.GetComponent<LineRenderer>().BakeMesh(newMesh, true);
-            meshCollider.sharedMesh = newMesh;
-            lineMesh.transform.SetParent(files[i].transform, false);
-
-            line.SetActive(true);
-
-            // Add the LineRenderer to the list in rocketTrajectory
-            rocket.lineList.Add(line.GetComponent<LineRenderer>());
-
-            // Create the VisualisationPoints object for this trajectory
-            GameObject point = new GameObject();
-            point.SetActive(false);
-            point.AddComponent<VisualisationPoints>();
-            point.GetComponent<VisualisationPoints>().visualisationMesh = mesh;
-            point.GetComponent<VisualisationPoints>().dataPointPrefab = dataPointPrefab;
-            point.GetComponent<VisualisationPoints>().pointMat = mat;
-            point.transform.SetParent(files[i].transform, false);
-            point.SetActive(true);
-            point.GetComponent<VisualisationPoints>().createPoints();
+            // Create the trajectory data objects
+            createTrajectory(i);
         }
 
         // After all trajectories have been created, create a new object to set the
@@ -137,7 +97,7 @@ public class DataFiles : MonoBehaviour
     }
 
     // For each csv file in the directory, create a csvDataSourceObject
-    private void createObjects()
+    private void createCSVDataSource()
     {
         string[] filePaths = Directory.GetFiles(Application.dataPath + path, "*.csv");
         for (int i = 0; i < filePaths.Length; i++)
@@ -156,6 +116,54 @@ public class DataFiles : MonoBehaviour
             files.Add(dataSourceObj.GetComponent<CSVDataSource>());
         }
     }
+
+    // Creates trajectory data objects (BigMesh, LineRenderer, MeshCollider, VisualisationPoints)
+    private void createTrajectory(int fileIndex)
+    {
+        // Create the BigMesh object for respective trajectory.
+        visualisation.dataSource = files[fileIndex];
+        visualisation.CreateVisualisation(AbstractVisualisation.VisualisationTypes.SCATTERPLOT);
+        BigMesh mesh = visualisation.theVisualizationObject.viewList[0].BigMesh;
+
+        // Create a randomly coloured material to use for the VisualisationLine and VisualisationPoints objects
+        var rand = new System.Random();
+        Material mat = new Material(Shader.Find("Standard"));
+        Color color = new Color((float)rand.NextDouble(), (float)rand.NextDouble(), (float)rand.NextDouble(), 1);
+        mat.color = color;
+
+        // Create the VisualisationLine object for this trajectory
+        GameObject line = new GameObject();
+        line.SetActive(false);
+        line.AddComponent<VisualisationLine>();
+        line.GetComponent<VisualisationLine>().visualisationMesh = mesh;
+        line.GetComponent<VisualisationLine>().lineMat = mat;
+        line.transform.SetParent(files[fileIndex].transform, false);
+
+        // Create the MeshCollider for the data object
+        GameObject lineMesh = new GameObject();
+        MeshCollider meshCollider = lineMesh.AddComponent<MeshCollider>();
+        Mesh newMesh = new Mesh();
+        line.GetComponent<LineRenderer>().BakeMesh(newMesh, true);
+        meshCollider.sharedMesh = newMesh;
+        lineMesh.transform.SetParent(files[fileIndex].transform, false);
+
+        line.SetActive(true);
+
+        // Add the LineRenderer to the list in rocketTrajectory
+        rocket.lineList.Add(line.GetComponent<LineRenderer>());
+
+        // Create the VisualisationPoints object for this trajectory
+        GameObject point = new GameObject();
+        point.SetActive(false);
+        point.AddComponent<VisualisationPoints>();
+        point.GetComponent<VisualisationPoints>().visualisationMesh = mesh;
+        point.GetComponent<VisualisationPoints>().dataPointPrefab = dataPointPrefab;
+        point.GetComponent<VisualisationPoints>().pointMat = mat;
+        point.transform.SetParent(files[fileIndex].transform, false);
+        point.SetActive(true);
+        point.GetComponent<VisualisationPoints>().createPoints();
+    }
+
 
     // Creates TextAsset object from a filepath
     private TextAsset textfromFile(string path)
