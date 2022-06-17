@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using IATK;
 
+// Creates the points of a visualisation as Line based on the IATK combined mesh
 [RequireComponent(typeof(LineRenderer))]
 public class VisualisationLine : MonoBehaviour
 {
-    public Vector3[] vertices;
-    public BigMesh visualisationMesh;
-    public LineRenderer line;
-    public Material lineMat;
+    private Vector3[] vertices;
+    private BigMesh visualisationMesh;
+    private LineRenderer line;
+    private Material lineMat;
 
     void Start()
     {
@@ -22,5 +23,15 @@ public class VisualisationLine : MonoBehaviour
         line.positionCount = vertices.Length;
         line.SetPositions(vertices);
         line.material = lineMat;
+    }
+
+    public void setVisualisationMesh(BigMesh mesh)
+    {
+        visualisationMesh = mesh;
+    }
+    
+    public void setLineMaterial(Material mat)
+    {
+        lineMat = mat;
     }
 }

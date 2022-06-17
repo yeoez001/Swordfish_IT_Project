@@ -99,8 +99,8 @@ public class DataFiles : MonoBehaviour
             GameObject line = new GameObject();
             line.SetActive(false);
             line.AddComponent<VisualisationLine>();
-            line.GetComponent<VisualisationLine>().visualisationMesh = mesh;
-            line.GetComponent<VisualisationLine>().lineMat = mat;
+            line.GetComponent<VisualisationLine>().setVisualisationMesh(mesh);
+            line.GetComponent<VisualisationLine>().setLineMaterial(mat);
             line.transform.SetParent(files[i].transform, false);
 
             GameObject lineMesh = new GameObject();
@@ -119,9 +119,9 @@ public class DataFiles : MonoBehaviour
             GameObject point = new GameObject();
             point.SetActive(false);
             point.AddComponent<VisualisationPoints>();
-            point.GetComponent<VisualisationPoints>().visualisationMesh = mesh;
-            point.GetComponent<VisualisationPoints>().dataPointPrefab = dataPointPrefab;
-            point.GetComponent<VisualisationPoints>().pointMat = mat;
+            point.GetComponent<VisualisationPoints>().setVisualisationMesh(mesh);
+            point.GetComponent<VisualisationPoints>().setDataPointPrefab(dataPointPrefab);
+            point.GetComponent<VisualisationPoints>().setPointMaterial(mat);
             point.transform.SetParent(files[i].transform, false);
             point.SetActive(true);
             point.GetComponent<VisualisationPoints>().createPoints();

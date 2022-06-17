@@ -9,10 +9,6 @@ public class DataObjects : MonoBehaviour
     private List<CSVDataSource> dataSources;
     private int selected = 0;
 
-    // TODO
-    // Method which changes the currently selected trajectory.
-
-
     // Adds a new dataSource (i.e. trajectory object) to visualisation list. 
     public void addSources(List<CSVDataSource> sources)
     {
@@ -27,7 +23,6 @@ public class DataObjects : MonoBehaviour
             return null;
         }
         return (VisualisationLine)dataSources[selected].GetComponentInChildren(typeof(VisualisationLine));
-        //.GetComponent<VisualisationLine>();
     }
 
     // Returns the VisualisationPoints object of the currently selected dataSource
