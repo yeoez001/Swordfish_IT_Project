@@ -14,8 +14,7 @@ public class DataFiles : MonoBehaviour
     private int maxIndexY = 0;
     private int maxIndexZ = 0;
 
-    private string path = "/Resources/rocketData";
-    private string nameStructure = "trajectory-";
+    private string path = "/Resources/MainData";
     private List<CSVDataSource> files;
 
     [SerializeField]
@@ -109,7 +108,7 @@ public class DataFiles : MonoBehaviour
             dataSourceObj.AddComponent<CSVDataSource>();
 
             // Set CSVDataSource data to file data.
-            TextAsset data = textfromFile(path + "/" + nameStructure + (i + 1) + ".csv");
+            TextAsset data = textfromFile(filePaths[i]);
             dataSourceObj.GetComponent<CSVDataSource>().data = data;
             dataSourceObj.GetComponent<CSVDataSource>().loadHeader();
             dataSourceObj.GetComponent<CSVDataSource>().load();
@@ -168,7 +167,7 @@ public class DataFiles : MonoBehaviour
     // Creates TextAsset object from a filepath
     private TextAsset textfromFile(string path)
     {
-        var sr = new StreamReader(Application.dataPath + path);
+        var sr = new StreamReader(path);
         string contents = sr.ReadToEnd();
         sr.Close();
         return new TextAsset(contents);
