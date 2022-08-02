@@ -1,0 +1,2 @@
+rocketMass,time,impulse,burnOut,nozzleRadius,throatRadius,radius,distanceRocketNozzle,distanceRocketPropellant,noseLength,noseDistanceToCM,finSpan,finDistanceToCM,railLength
+24.75,104.93703242705593,6026.35,3.9,0.033,0.011,0.0635,-1.255,-0.85704,0.55829,0.71971,0.1,-1.04956,5.2

@@ -4,87 +4,67 @@ using UnityEngine;
 using IATK;
 using System.IO;
 
-public class DataFiles : MonoBehaviour
+public class LoadInputVariables : MonoBehaviour
 {
     public Visualisation visualisation;  // IATK visualisation object
-    public GameObject dataPointPrefab;   // Prefab for trajectory data points
     private float[] dimensionMin;
     private float[] dimensionMax;
     private int maxIndexX = 0;
     private int maxIndexY = 0;
-    private int maxIndexZ = 0;
-
-    public string folder = "MainData";
-    private string path = "/Resources/";
+    private string path = "/Resources/MainData/InputData";
     private List<CSVDataSource> files;
 
-    [SerializeField]
-    private RocketAnimation rocket;
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         // First find files and create csvDataSource objects
         files = new List<CSVDataSource>();
         createCSVDataSource();
 
-        dimensionMin = new float[files[0].DimensionCount];
-        dimensionMax = new float[files[0].DimensionCount];
+        //dimensionMin = new float[files[0].DimensionCount];
+        //dimensionMax = new float[files[0].DimensionCount];
 
-        // TODO
-        // INEFFICIENT?? TEMP FIX 
-        // Determine global min/max for scaling
-        // Loop each file
-        for (int i = 0; i < files.Count; i++)
-        {
-            // Loop each variable in files
-            for (int j = 0; j < files[i].DimensionCount; j++)
-            {
-                // Get min and max values for variable and compare against current
-                // global min/max
-                if (i == 0)
-                {
-                    dimensionMin[j] = files[i].getDimensions()[j].MetaData.minValue;
-                }
-                else if (files[i].getDimensions()[j].MetaData.minValue < dimensionMin[j])
-                {
-                    dimensionMin[j] = files[i].getDimensions()[j].MetaData.minValue;
-                }
+        //// TODO
+        //// INEFFICIENT?? TEMP FIX 
+        //// Determine global min/max for scaling
+        //// Loop each file
+        //for (int i = 0; i < files.Count; i++)
+        //{
+        //    // Loop each variable in files
+        //    for (int j = 0; j < files[i].DimensionCount; j++)
+        //    {
+        //        // Get min and max values for variable and compare against current
+        //        // global min/max
+        //        if (i == 0)
+        //        {
+        //            dimensionMin[j] = files[i].getDimensions()[j].MetaData.minValue;
+        //        }
+        //        else if (files[i].getDimensions()[j].MetaData.minValue < dimensionMin[j])
+        //        {
+        //            dimensionMin[j] = files[i].getDimensions()[j].MetaData.minValue;
+        //        }
 
-                if (i == 0)
-                {
-                    dimensionMax[j] = files[i].getDimensions()[j].MetaData.maxValue;
-                }
-                else if (files[i].getDimensions()[j].MetaData.maxValue > dimensionMax[j])
-                {
-                    dimensionMax[j] = files[i].getDimensions()[j].MetaData.maxValue;
+        //        if (i == 0)
+        //        {
+        //            dimensionMax[j] = files[i].getDimensions()[j].MetaData.maxValue;
+        //        }
+        //        else if (files[i].getDimensions()[j].MetaData.maxValue > dimensionMax[j])
+        //        {
+        //            dimensionMax[j] = files[i].getDimensions()[j].MetaData.maxValue;
 
-                    // VERY inelegant solution
-                    // Finding the file indexes which have the largest x,y,z values so we
-                    // can set the axis ticks correctly
-                    if (j == 1)
-                    {
-                        maxIndexX = i;
-                    }
-                    else if (j == 2)
-                    {
-                        maxIndexY = i;
-                    }
-                    else if (j == 3)
-                    {
-                        maxIndexZ = i;
-                    }
-                }
-            }
-        }
-
-        // For second level abstraction, set correct x,y dimensions
-        if (rocket == null)
-        {
-            visualisation.xDimension = new DimensionFilter { Attribute = "rocketMass" };
-            visualisation.yDimension = new DimensionFilter { Attribute = "time" };
-            //visualisation.theVisualizationObject.Z_AXIS.SetActive(false);
-        }
-
+        //            // VERY inelegant solution
+        //            // Gets variable at index 0 (i.e. 'mass'). Fixed index for testing purposes
+        //            if (j == 0)
+        //            {
+        //                maxIndexX = i;
+        //            }
+        //            else if (j == 2)
+        //            {
+        //                maxIndexY = i;
+        //            }
+        //        }
+        //    }
+        //}
 
         // For each data file, create the trajectory within the visualisation object.
         for (int i = 0; i < files.Count; i++)
@@ -95,26 +75,18 @@ public class DataFiles : MonoBehaviour
             // Create the trajectory data objects
             createTrajectory(i);
         }
-
-        // After all trajectories have been created, create a new object to set the
-        // axis ticks correctly
-        UpdateAxisTicks();
-
-        // After final view has loaded, delete it from the visualisation object
-        // All the trajectory data is in the visualisationPoints and visualisationLines objects .
-        visualisation.destroyView();
     }
 
     // For each csv file in the directory, create a csvDataSourceObject
     private void createCSVDataSource()
     {
-        string[] filePaths = Directory.GetFiles(Application.dataPath + (path+folder), "*.csv");
+        string[] filePaths = Directory.GetFiles(Application.dataPath + path, "*.csv");
         for (int i = 0; i < filePaths.Length; i++)
         {
             // Create new game object with CSVDataSource component
             GameObject dataSourceObj = new GameObject("DataSource" + (i + 1));
             dataSourceObj.transform.SetParent(this.transform, false);
-            
+
             dataSourceObj.AddComponent<CSVDataSource>();
 
             // Set CSVDataSource data to file data.
@@ -123,6 +95,7 @@ public class DataFiles : MonoBehaviour
             dataSourceObj.GetComponent<CSVDataSource>().loadHeader();
             dataSourceObj.GetComponent<CSVDataSource>().load();
             files.Add(dataSourceObj.GetComponent<CSVDataSource>());
+            Debug.Log(dataSourceObj.GetComponent<CSVDataSource>().data);
         }
     }
 
@@ -159,17 +132,14 @@ public class DataFiles : MonoBehaviour
         line.SetActive(true);
 
         // Add the LineRenderer to the list in rocketTrajectory
-        if (rocket != null)
-        {
-            rocket.lineList.Add(line.GetComponent<LineRenderer>());
-        }
+        //rocket.lineList.Add(line.GetComponent<LineRenderer>());
 
         // Create the VisualisationPoints object for this trajectory
         GameObject point = new GameObject();
         point.SetActive(false);
         point.AddComponent<VisualisationPoints>();
         point.GetComponent<VisualisationPoints>().setVisualisationMesh(mesh);
-        point.GetComponent<VisualisationPoints>().setDataPointPrefab(dataPointPrefab);
+        //point.GetComponent<VisualisationPoints>().setDataPointPrefab(dataPointPrefab);
         point.GetComponent<VisualisationPoints>().setPointMaterial(mat);
         point.transform.SetParent(files[fileIndex].transform, false);
         point.SetActive(true);
@@ -184,29 +154,5 @@ public class DataFiles : MonoBehaviour
         string contents = sr.ReadToEnd();
         sr.Close();
         return new TextAsset(contents);
-    }
-
-    public List<CSVDataSource> GetFiles()
-    {
-        return files;
-    }
-
-    // Update the axis ticks 
-    private void UpdateAxisTicks()
-    {
-        // Update X axis
-        DestroyImmediate(visualisation.theVisualizationObject.X_AXIS);
-        visualisation.dataSource = files[maxIndexY];
-        visualisation.theVisualizationObject.ReplaceAxis(AbstractVisualisation.PropertyType.X);
-
-        // Update Y axis
-        DestroyImmediate(visualisation.theVisualizationObject.Y_AXIS);
-        visualisation.dataSource = files[maxIndexZ];
-        visualisation.theVisualizationObject.ReplaceAxis(AbstractVisualisation.PropertyType.Y);
-
-        // Update Z axis
-        DestroyImmediate(visualisation.theVisualizationObject.Z_AXIS);
-        visualisation.dataSource = files[maxIndexX];
-        visualisation.theVisualizationObject.ReplaceAxis(AbstractVisualisation.PropertyType.Z);
     }
 }
